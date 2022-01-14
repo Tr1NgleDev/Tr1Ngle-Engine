@@ -1,7 +1,9 @@
 package;
 
 #if desktop
-import Discord.DiscordClient;
+import Discord.DiscordClient; 
+#end 
+#if sys
 import sys.thread.Thread;
 #end
 import flixel.FlxG;
@@ -48,9 +50,6 @@ class TitleState extends MusicBeatState
 	{
 		
 		FlxG.fullscreen = FlxG.save.data.fullscreen;
-		#if polymod
-		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
-		#end
 
 		PlayerSettings.init();
 

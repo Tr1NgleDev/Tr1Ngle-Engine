@@ -39,7 +39,8 @@ class OptionsMenu extends MusicBeatState
 			new PreloadImagesOption()
 			
 		]),
-		new OptionCatagory("Controls",[]),
+		new OptionCatagory("Mobile Controls",[]),
+		new OptionCatagory("Keyboard Controls",[]),
 		new OptionCatagory("Exit",[]),
 	];
 	
@@ -202,9 +203,13 @@ class OptionsMenu extends MusicBeatState
 				else
 				{
 					
-                        if(options[curSelected].getName() == "Controls")
+                        if(options[curSelected].getName() == "Keyboard Controls")
 						{
 							FlxG.switchState(new BindMenu());
+						}
+						else if(options[curSelected].getName() == "Mobile Controls")
+						{
+							FlxG.switchState(new android.AndroidControls());
 						}
 						else if(options[curSelected].getName() == "Exit")
 						{

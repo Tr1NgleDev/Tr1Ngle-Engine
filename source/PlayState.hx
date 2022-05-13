@@ -1139,6 +1139,8 @@ class PlayState extends MusicBeatState
   #end
 
 		super.create();
+		
+		Paths.clearUnusedMemory();
 	}
 
 

@@ -153,9 +153,9 @@ class OptionsMenu extends MusicBeatState
 				curSelected = 0;
 				changeSelection(0);
 			}
-			if (FlxG.keys.justPressed.UP)
+			if (controls.UP)
 				changeSelection(-1);
-			if (FlxG.keys.justPressed.DOWN)
+			if (controls.DOWN)
 				changeSelection(1);
 			
 			if (isCat)

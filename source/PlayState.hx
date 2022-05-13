@@ -224,8 +224,6 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
-	  Paths.clearStoredMemory();
-		
 		Bind.keyCheck();
 		if (FlxG.sound.music != null)
 			FlxG.sound.music.stop();
@@ -1081,7 +1079,11 @@ class PlayState extends MusicBeatState
 			botAutoPlayAlert.cameras = [camHUD];
 		
 		doof.cameras = [camHUD];
-		grpNoteSplashes.cameras = [camHUD];
+		grpNoteSplashes.cameras = [camHUD]
+		
+		  #if android
+    	addAndroidControls();
+      #end;
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -1142,14 +1144,9 @@ class PlayState extends MusicBeatState
 					startCountdown();
 			}
 		}
-  #if android
-	addAndroidControls();
-  #end
 
 		super.create();
-		
-		Paths.clearUnusedMemory();
-	}
+		}
 
 
 	function schoolIntro(?dialogueBox:DialogueBox):Void

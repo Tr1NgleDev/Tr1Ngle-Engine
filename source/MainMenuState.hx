@@ -151,13 +151,13 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
-			if (FlxG.keys.justPressed.UP)
+			if (controls.UP)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'), 1, false);
 				changeItem(-1);
 			}
 
-			if (FlxG.keys.justPressed.DOWN)
+			if (controls.DOWN)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'), 1, false);
 				changeItem(1);

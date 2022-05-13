@@ -329,7 +329,8 @@ class PlayState extends MusicBeatState
 		// Updating Discord Rich Presence.
 		DiscordClient.changePresence(detailsText + " " + SONG.song + " (" + storyDifficultyText + ") " , "Misses:" + misses + " | " + "Score:" + songScore + " | " + "KPS:" + kps + "(" + kpsMax + ")" + " | " + "Accuracy:" + totalAccuracy + "%" + " | " + "Rank:" + totalRank, iconRPC);
 		#end
-
+    if(FlxG.save.data.optimode)
+    {
 		switch (SONG.song.toLowerCase())
 		{
                         case 'spookeez' | 'monster' | 'south': 
@@ -668,6 +669,7 @@ class PlayState extends MusicBeatState
 		                  add(stageCurtains);
 		          }
               }
+    }
 
 		var gfVersion:String = 'gf';
 
@@ -771,14 +773,20 @@ class PlayState extends MusicBeatState
 				gf.y += 300;
 		}
 
+    if (FlxG.save.data.optimode)
+    {
 		add(gf);
+    }
 
 		// Shitty layering but whatev it works LOL
 		if (curStage == 'limo')
 			add(limo);
-
+	
+    if (FlxG.save.data.optimode)
+    {
 		add(dad);
 		add(boyfriend);
+    }
 
 		var doof:DialogueBox = new DialogueBox(false, dialogue);
 		// doof.x += 70;
@@ -810,7 +818,7 @@ class PlayState extends MusicBeatState
 		bgForNotes12.alpha = 0.4;
 		bgForNotes22.alpha = 0.4;
 
-		if(FlxG.save.data.middlescroll)
+		
 		{
 			bgForNotes2.alpha = 0.2;
 			bgForNotes1.alpha = 0.2;

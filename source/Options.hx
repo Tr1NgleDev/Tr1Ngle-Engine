@@ -91,6 +91,27 @@ class DownscrollOption extends Option
 	}
 }
 
+class OptimizationOption extends Option
+{
+	public function new()
+	{
+		super();
+	}
+
+	public override function press(changeData:Bool):Bool
+	{
+		if(changeData)
+			FlxG.save.data.optimode = !FlxG.save.data.optimode;
+		acceptValues = FlxG.save.data.optimode;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Optimization Mode "/* + (!FlxG.save.data.downscroll ? "off" : "on")*/;
+	}
+}
 class BGForNotesOption extends Option
 {
 	public function new()

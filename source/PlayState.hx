@@ -1136,6 +1136,9 @@ class PlayState extends MusicBeatState
 					startCountdown();
 			}
 		}
+  #if android
+	addAndroidControls();
+  #end
 
 		super.create();
 	}

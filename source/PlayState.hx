@@ -224,9 +224,7 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
-
-
-
+	  Paths.clearStoredMemory();
 		
 		Bind.keyCheck();
 		if (FlxG.sound.music != null)

@@ -1,5 +1,6 @@
 package;
 
+import flixel.graphics.FlxGraphic;
 import flixel.FlxGame;
 import flixel.FlxState;
 import openfl.Assets;
@@ -68,6 +69,8 @@ class Main extends Sprite
 		#if !debug
 		initialState = TitleState;
 		#end
+		
+		FlxGraphic.defaultPersist = true;
 
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 		

@@ -59,14 +59,14 @@ class Paths
 			}
 		}
 
-		// clear all sounds that are cached
+		/* clear all sounds that are cached
 		for (key in currentTrackedSounds.keys()) {
 			if (!localTrackedAssets.contains(key) 
 			&& !dumpExclusions.contains(key) && key != null) {
 				Assets.cache.clear(key);
 				currentTrackedSounds.remove(key);
 			}
-		}	
+		}*/
 		// flags everything to be cleared out next unused memory clear
 		localTrackedAssets = [];
 		openfl.Assets.cache.clear("songs");
@@ -164,9 +164,12 @@ class Paths
 		return 'songs:assets/songs/${song.toLowerCase()}/Inst.$SOUND_EXT';
 	}
 
-	inline static public function image(key:String, ?library:String)
+	inline static public function image(key:String, ?library:String):Dynamic
 	{
 		return getPath('images/$key.png', IMAGE, library);
+	  // streamlined the assets process more
+		var returnAsset:FlxGraphic = returnGraphic(key, library);
+		return returnAsset;
 	}
 
 	inline static public function noteSkin(skinName:String)
@@ -184,7 +187,7 @@ class Paths
 		return 'assets/fonts/$key';
 	}
 
-	inline static public function getSparrowAtlas(key:String, ?library:String)
+	inline static public function getSparrowAtlas(key:String, ?library:String):FlxAtlasFrames
 	{
 		return FlxAtlasFrames.fromSparrow(image(key, library), file('images/$key.xml', library));
 	}

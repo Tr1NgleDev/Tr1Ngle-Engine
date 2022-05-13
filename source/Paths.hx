@@ -128,9 +128,9 @@ class Paths
 	}
 
 	inline static public function getSparrowAtlas(key:String, ?library:String
-	{
+	{/
 		return FlxAtlasFrames.fromSparrow(image(key, library), file('images/$key.xml', library));
-	}
+	});
 
 	inline static public function getSparrowAtlasNoteSkin(key:String, ?library:String)
 	{

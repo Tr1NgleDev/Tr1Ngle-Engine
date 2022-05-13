@@ -55,7 +55,12 @@ jobs:
           haxelib install flixel-addons
           haxelib install flixel-ui
           haxelib install hscript
+          haxelib install hxcpp > /dev/null
           haxelib install flixel-addons
+          haxelib run lime config ANDROID_SDK $ANDROID_SDK_ROOT
+          haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_ROOT
+          haxelib run lime config JAVA_HOME $JAVA_HOME
+          haxelib run lime config ANDROID_SETUP true
           haxelib git faxe https://github.com/uhrobots/faxe
           haxelib git AndroidTools https://github.com/jigsaw-4277821/AndroidTools.git
           haxelib git polymod https://github.com/larsiusprime/polymod.git

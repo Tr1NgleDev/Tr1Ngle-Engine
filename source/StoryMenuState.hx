@@ -241,7 +241,7 @@ class StoryMenuState extends MusicBeatState
 				else
 					rightArrow.animation.play('idle');
 
-				if (controls.RIGHT)
+				if (controls.LEFT)
 					leftArrow.animation.play('press');
 				else
 					leftArrow.animation.play('idle');

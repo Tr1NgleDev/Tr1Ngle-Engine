@@ -779,7 +779,7 @@ class PlayState extends MusicBeatState
     }
 
 		// Shitty layering but whatev it works LOL
-		if (curStage == 'limo')
+		if (curStage == 'limo' && !FlxG.save.data.optimode)
 			add(limo);
 	
     if (FlxG.save.data.optimode)

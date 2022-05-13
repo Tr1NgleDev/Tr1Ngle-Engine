@@ -36,7 +36,7 @@ class OptionsMenu extends MusicBeatState
 			new MemoryCounterOption(),
 			new FullscreenOption(),
 			new ShadersOption(),
-			new PreloadImagesOption()
+			new OptimizationOption()
 			
 		]),
 		new OptionCatagory("Mobile Controls",[]),

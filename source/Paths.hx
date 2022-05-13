@@ -1,11 +1,5 @@
 package;
 
-import flixel.math.FlxPoint;
-import flixel.graphics.frames.FlxFrame.FlxFrameAngle;
-import openfl.geom.Rectangle;
-import flixel.math.FlxRect;
-import haxe.xml.Access;
-import openfl.system.System;
 import flixel.FlxG;
 import flixel.graphics.frames.FlxAtlasFrames;
 import openfl.utils.AssetType;
@@ -109,7 +103,6 @@ class Paths
 	inline static public function image(key:String, ?library:String)
 	{
 		return getPath('images/$key.png', IMAGE, library);
-	  // streamlined the assets process more
 	}
 
 	inline static public function noteSkin(skinName:String)
@@ -127,10 +120,10 @@ class Paths
 		return 'assets/fonts/$key';
 	}
 
-	inline static public function getSparrowAtlas(key:String, ?library:String
-	{/
+	inline static public function getSparrowAtlas(key:String, ?library:String)
+	{
 		return FlxAtlasFrames.fromSparrow(image(key, library), file('images/$key.xml', library));
-	});
+	}
 
 	inline static public function getSparrowAtlasNoteSkin(key:String, ?library:String)
 	{

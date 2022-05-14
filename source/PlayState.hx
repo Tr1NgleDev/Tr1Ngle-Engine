@@ -1083,6 +1083,7 @@ class PlayState extends MusicBeatState
 		
 		  #if android
     	addAndroidControls();
+      androidc.visible = true;
       #end
 
 		// if (SONG.song == 'South')

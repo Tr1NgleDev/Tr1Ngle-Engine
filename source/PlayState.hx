@@ -771,20 +771,14 @@ class PlayState extends MusicBeatState
 				gf.y += 300;
 		}
 
-    if (FlxG.save.data.optimode)
-    {
 		add(gf);
-    }
 
 		// Shitty layering but whatev it works LOL
 		if (curStage == 'limo' && !FlxG.save.data.optimode)
 			add(limo);
 	
-    if (FlxG.save.data.optimode)
-    {
 		add(dad);
 		add(boyfriend);
-    }
 
 		var doof:DialogueBox = new DialogueBox(false, dialogue);
 		// doof.x += 70;

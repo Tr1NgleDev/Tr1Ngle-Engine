@@ -327,8 +327,6 @@ class PlayState extends MusicBeatState
 		// Updating Discord Rich Presence.
 		DiscordClient.changePresence(detailsText + " " + SONG.song + " (" + storyDifficultyText + ") " , "Misses:" + misses + " | " + "Score:" + songScore + " | " + "KPS:" + kps + "(" + kpsMax + ")" + " | " + "Accuracy:" + totalAccuracy + "%" + " | " + "Rank:" + totalRank, iconRPC);
 		#end
-    if(FlxG.save.data.optimode)
-    {
 		switch (SONG.song.toLowerCase())
 		{
                         case 'spookeez' | 'monster' | 'south': 
@@ -667,7 +665,6 @@ class PlayState extends MusicBeatState
 		                  add(stageCurtains);
 		          }
               }
-    }
 
 		var gfVersion:String = 'gf';
 

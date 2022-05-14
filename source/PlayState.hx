@@ -1079,7 +1079,7 @@ class PlayState extends MusicBeatState
 			botAutoPlayAlert.cameras = [camHUD];
 		
 		doof.cameras = [camHUD];
-		grpNoteSplashes.cameras = [camHUD]
+		grpNoteSplashes.cameras = [camHUD];
 		
 		  #if android
     	addAndroidControls();

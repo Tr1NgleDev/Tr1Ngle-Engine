@@ -359,8 +359,8 @@ class CustomHitboxOption extends Option
 	}
 	public override function right():Bool
 	{
-	  if(FlxG.save.data.hitbox < 3;
-	    FlxG.save.data.hitbox += 1
+	  if(FlxG.save.data.hitbox < 3)
+	    FlxG.save.data.hitbox += 1;
 		/*FlxG.save.data.framerateDraw
 			FlxG.drawFramerate += 10;
 		FlxG.save.data.framerateDraw = FlxG.drawFramerate;*/

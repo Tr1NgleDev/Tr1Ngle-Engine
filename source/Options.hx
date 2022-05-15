@@ -52,15 +52,7 @@ class Option
 	public var HitboxOption:Int = 1;
 	public final function getDisplay():String
 	{
-		return display;
-	}
-
-	public final function getAccept():Bool
-	{
-		return acceptValues;
-	}
-	
-	switch(FlxG.save.data.hitbox)
+	  switch(FlxG.save.data.hitbox)
 	{
 	  case 1:
 	    HitboxOption = 1;
@@ -68,6 +60,14 @@ class Option
 	    HitboxOption = 2;
 	  case 3:
 	    HitboxOption = 3;
+	}
+
+		return display;
+	}
+
+	public final function getAccept():Bool
+	{
+		return acceptValues;
 	}
 	
 	// Returns whether the label is to be updated.

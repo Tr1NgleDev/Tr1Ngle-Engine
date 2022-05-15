@@ -77,16 +77,12 @@ class Main extends Sprite
 		if(FlxG.save.data.framerateDraw >= 60 && FlxG.save.data.framerateDraw != null)
 			FlxG.drawFramerate = FlxG.save.data.framerateDraw;
 		
-		#if !mobile
-		
 		fpsCounter = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsCounter);
 		toggleFPS(FlxG.save.data.fps);
 		memoryCounter = new MemoryCounter(10, 3, 0xffffff);
 		addChild(memoryCounter);
 		toggleMem(FlxG.save.data.mem);
-
-		#end
 
 
 	}

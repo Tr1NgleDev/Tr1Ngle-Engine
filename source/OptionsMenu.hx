@@ -30,6 +30,7 @@ class OptionsMenu extends MusicBeatState
 			new BGForNotesOption(),
 			new PauseCountdownOption(),
 			new InstantRespawnOption(),
+			new CustomHitboxOption(),
 			new BotOption(),
 			new FramerateOption(),
 			new FPSOption(),

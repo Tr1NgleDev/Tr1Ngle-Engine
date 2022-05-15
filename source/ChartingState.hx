@@ -189,6 +189,10 @@ class ChartingState extends MusicBeatState
 		add(curRenderedSustains);
 
 		updateHeads();
+		
+		             #if android
+		addVirtualPad(FULL, A_B_X_Y);
+		#end
 
 		super.create();
 	}
@@ -698,7 +702,7 @@ class ChartingState extends MusicBeatState
 
 		FlxG.watch.addQuick('daBeat', curBeat);
 		FlxG.watch.addQuick('daStep', curStep);
-
+    #if !mobile
 		if (FlxG.mouse.justPressed)
 		{
 			if (FlxG.mouse.overlaps(curRenderedNotes))
@@ -748,8 +752,59 @@ class ChartingState extends MusicBeatState
 			else
 				dummyArrow.y = Math.floor(FlxG.mouse.y / GRID_SIZE) * GRID_SIZE;
 		}
+		#else
+		if (FlxG.touch.justPressed)
+		{
+			if (FlxG.touch.overlaps(curRenderedNotes))
+			{
+				curRenderedNotes.forEach(function(note:Note)
+				{
+					if (FlxG.touch.overlaps(note))
+					{
+						if (_virtualpad.buttonY.justPressed #end)
+						{
+							selectNote(note);
+						}
+						else
+						{
+							trace('tryin to delete note...');
+							deleteNote(note);
+						}
+					}
+				});
+			}
+			else
+			{
+				if (FlxG.touch.x > gridBG.x
+					&& FlxG.touch.x < gridBG.x + gridBG.width
+					&& FlxG.touch.y > gridBG.y
+					&& FlxG.touch.y < gridBG.y + (GRID_SIZE * _song.notes[curSection].lengthInSteps))
+				{
+					FlxG.log.add('added note');
+					addNote();
+				}
+			}
+		}
 
-		if (FlxG.keys.justPressed.ENTER)
+		if (_virtualpad.buttonB.justPressed)
+		{
+			toggleAltAnimNote();
+		}
+
+		if (FlxG.touch.x > gridBG.x
+			&& FlxG.touch.x < gridBG.x + gridBG.width
+			&& FlxG.touch.y > gridBG.y
+			&& FlxG.touch.y < gridBG.y + (GRID_SIZE * _song.notes[curSection].lengthInSteps))
+		{
+			dummyArrow.x = Math.floor(FlxG.touch.x / GRID_SIZE) * GRID_SIZE;
+			if (FlxG.keys.pressed.SHIFT)
+				dummyArrow.y = FlxG.touch.y;
+			else
+				dummyArrow.y = Math.floor(FlxG.touch.y / GRID_SIZE) * GRID_SIZE;
+		}
+		#end
+
+		if (FlxG.keys.justPressed.ENTER #if android || _virtualpad.buttonA.justPressed #end)
 		{
 			lastSection = curSection;
 
@@ -1316,6 +1371,8 @@ class ChartingState extends MusicBeatState
 		};
 
 		var data:String = Json.stringify(json);
+		
+		openfl.system.System.setClipboard(data.trim());
 
 		if ((data != null) && (data.length > 0))
 		{

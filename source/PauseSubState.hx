@@ -19,7 +19,7 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 	var difficultyChoices:Array<String> = ["Easy", "Normal", "Hard", "Back"];
 	var modifiersChoices:Array<String> = ["Insta Fail", "No Fail", "Random Notes", "Back"];
-	var menuItems:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Modifiers', 'Exit to menu', 'Exit to chart editor'];
+	var menuItems:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Modifiers', 'Exit to menu'/*, 'Exit to chart editor'*/];
 	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Modifiers', 'Exit to menu'];
 	var curSelected:Int = 0;
 

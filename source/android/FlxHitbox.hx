@@ -5,6 +5,8 @@ import flixel.graphics.FlxGraphic;
 import flixel.group.FlxSpriteGroup;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
+import flixel.FlxG;
+import flixel.FlxG;
 import flixel.ui.FlxButton;
 import flixel.FlxSprite;
 

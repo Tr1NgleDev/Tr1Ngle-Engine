@@ -60,18 +60,15 @@ class Option
 		return acceptValues;
 	}
 	
-	if (FlxG.save.data.hitbox = 1)
-  {
-    HitboxOption = 1
-  }
-  else if (FlxG.save.data.hitbox = 2)
-  {
-    HitboxOption = 2
-  }
-  else if (FlxG.save.data.hitbox = 3)
-  {
-    HitboxOption = 3
-  }
+	switch (FlxG.save.data.hitbox)
+	{
+	  case 1:
+	    HitboxOption = 1
+	  case 2:
+	    HitboxOption = 2
+	  case 3:
+	    HitboxOption = 3
+	}
 	
 	// Returns whether the label is to be updated.
 	public function press(changeData:Bool):Bool { return false; }

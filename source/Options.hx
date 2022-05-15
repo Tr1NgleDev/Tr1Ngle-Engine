@@ -11,24 +11,10 @@ import flixel.graphics.FlxGraphic;
 class OptionCatagory
 {
 	private var _options:Array<Option> = new Array<Option>();
-	public var HitboxOption:Int = 1;
 	public final function getOptions():Array<Option>
 	{
 		return _options;
 	}
-  
-  if (FlxG.save.data.hitbox = 1)
-  {
-    HitboxOption = 1
-  }
-  else if (FlxG.save.data.hitbox = 2)
-  {
-    HitboxOption = 2
-  }
-  else if (FlxG.save.data.hitbox = 3)
-  {
-    HitboxOption = 3
-  }
 	public final function addOption(opt:Option)
 	{
 		_options.push(opt);
@@ -63,6 +49,7 @@ class Option
 	private var acceptValues:Bool = false;
 	public var withoutCheckboxes:Bool = false;
 	public var boldDisplay:Bool = true;
+	public var HitboxOption:Int = 1;
 	public final function getDisplay():String
 	{
 		return display;
@@ -72,6 +59,19 @@ class Option
 	{
 		return acceptValues;
 	}
+	
+	if (FlxG.save.data.hitbox = 1)
+  {
+    HitboxOption = 1
+  }
+  else if (FlxG.save.data.hitbox = 2)
+  {
+    HitboxOption = 2
+  }
+  else if (FlxG.save.data.hitbox = 3)
+  {
+    HitboxOption = 3
+  }
 	
 	// Returns whether the label is to be updated.
 	public function press(changeData:Bool):Bool { return false; }

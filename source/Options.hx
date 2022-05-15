@@ -63,11 +63,11 @@ class Option
 	switch (FlxG.save.data.hitbox)
 	{
 	  case 1:
-	    HitboxOption = 1
+	    HitboxOption = 1;
 	  case 2:
-	    HitboxOption = 2
+	    HitboxOption = 2;
 	  case 3:
-	    HitboxOption = 3
+	    HitboxOption = 3;
 	}
 	
 	// Returns whether the label is to be updated.

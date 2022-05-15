@@ -88,7 +88,7 @@ class OptionsMenu extends MusicBeatState
 		
 
     #if android
-	  addVirtualPad(FULL, A_B);
+	  addVirtualPad(FULL, A_B_C);
     #end
  
 		super.create();
@@ -162,18 +162,18 @@ class OptionsMenu extends MusicBeatState
 			{
 				if (currentSelectedCat.getOptions()[curSelected].getAccept())
 				{
-					if (FlxG.keys.pressed.SHIFT)
+					if (FlxG.keys.pressed.SHIFT #if android || _virtualpad.buttonC.justPressed #end)
 						{
-							if (FlxG.keys.pressed.RIGHT)
+							if (controls.RIGHT_P)
 								currentSelectedCat.getOptions()[curSelected].right();
-							if (FlxG.keys.pressed.LEFT)
+							if (controls.LEFT_P)
 								currentSelectedCat.getOptions()[curSelected].left();
 						}
 					else
 					{
-						if (FlxG.keys.justPressed.RIGHT)
+						if (controls.RIGHT_P)
 							currentSelectedCat.getOptions()[curSelected].right();
-						if (FlxG.keys.justPressed.LEFT)
+						if (controls.LEFT_P)
 							currentSelectedCat.getOptions()[curSelected].left();
 					}
 				}

@@ -60,7 +60,7 @@ class Option
 		return acceptValues;
 	}
 	
-	switch (FlxG.save.data.hitbox)
+	switch(FlxG.save.data.hitbox)
 	{
 	  case 1:
 	    HitboxOption = 1;

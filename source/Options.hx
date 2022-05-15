@@ -370,10 +370,10 @@ class CustomHitboxOption extends Option
 	private override function updateDisplay():String
 	{
 		boldDisplay = false;
-		return "Hitbox #" + if (FlxG.save.data.hitbox = 1) {"1"} 
-		else if (FlxG.save.data.hitbox = 2) {"2"} 
-		else if (FlxG.save.data.hitbox = 3) {"3"}
-		else {"1"}/* + (!FlxG.save.data.fps ? "off" : "on")*/;
+		return "Hitbox #"; + if (FlxG.save.data.hitbox = 1) {"1"};
+		else if (FlxG.save.data.hitbox = 2) {"2"} ;
+		else if (FlxG.save.data.hitbox = 3) {"3"};
+		else {"1"};/* + (!FlxG.save.data.fps ? "off" : "on")*/
 	}
 }
 

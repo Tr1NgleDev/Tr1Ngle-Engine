@@ -11,7 +11,7 @@ import flixel.graphics.FlxGraphic;
 class OptionCatagory
 {
 	private var _options:Array<Option> = new Array<Option>();
-	public var HitboxOption:Int = 1
+	public var HitboxOption:Int = 1;
 	public final function getOptions():Array<Option>
 	{
 		return _options;

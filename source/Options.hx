@@ -343,48 +343,6 @@ class FramerateOption extends Option
 	}
 }
 
-class CustomHitboxOption extends Option
-{
-	public function new()
-	{
-		withoutCheckboxes = true;
-		boldDisplay = false;
-		super();
-	}
-	public override function press(changeData:Bool):Bool
-	{
-		withoutCheckboxes = true;
-		boldDisplay = false;
-		return true;
-	}
-	public override function left():Bool
-	{
-	  if(FlxG.save.data.hitbox > 1)
-	    FlxG.save.data.hitbox -= 1;
-		/*if(FlxG.drawFramerate > 60)
-			FlxG.drawFramerate -= 10;
-		FlxG.save.data.framerateDraw = FlxG.drawFramerate;*/
-		display = updateDisplay();
-		return true;
-	}
-	public override function right():Bool
-	{
-	  if(FlxG.save.data.hitbox < 3)
-	    FlxG.save.data.hitbox += 1;
-		/*FlxG.save.data.framerateDraw
-			FlxG.drawFramerate += 10;
-		FlxG.save.data.framerateDraw = FlxG.drawFramerate;*/
-		display = updateDisplay();
-		return true;
-	}
-	private override function updateDisplay():String
-	{
-		boldDisplay = false;
-		return "Hitbox #" + HitboxOption;/* + (!FlxG.save.data.fps ? "off" : "on")*/
-	}
-}
-
-
 class ShadersOption extends Option
 {
 	public function new()

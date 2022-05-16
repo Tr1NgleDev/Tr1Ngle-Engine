@@ -189,8 +189,6 @@ class PauseSubState extends MusicBeatSubstate
 				case "Restart Song":
 					FlxG.resetState();
 				case "Exit to menu":
-					FlxG.switchState(new ChartingState());
-				case "Exit to chart editor":
 					FlxG.switchState(new MainMenuState());
 				case "Change Difficulty":
 					menuItems = difficultyChoices;

@@ -35,16 +35,7 @@ class FlxHitbox extends FlxSpriteGroup
 		hitbox.add(add(buttonUp = createhitbox(640, "up")));
 		hitbox.add(add(buttonRight = createhitbox(960, "right")));
 		
-    switch(FlxG.save.data.hitbox)
-    {
-    case 1:
-  		hitbox_hint = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/default_hint'));
-    case 2:
-        hitbox_hint = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/saw_hint'));
-    case 3:
-        hitbox_hint = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/neon_hint'));
-    default:
-  		hitbox_hint = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/default_hint'));
+  		hitbox_hint = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/' + FlxG.save.data.hitbox + '_hint'));
     }
     
 		hitbox_hint.alpha = 0.75;
@@ -81,17 +72,7 @@ class FlxHitbox extends FlxSpriteGroup
 
 	public static function getHitboxFrames():FlxAtlasFrames
 	{
-	  
-	  switch(FlxG.save.data.hitbox)
-	  {
-  	 case 1:
-  		return Paths.getSparrowAtlas('androidcontrols/default');
-  	case 2:
-  		return Paths.getSparrowAtlas('androidcontrols/saw');
-  	case 3:
-  		return Paths.getSparrowAtlas('androidcontrols/neon');
-  	default:
-  		return Paths.getSparrowAtlas('androidcontrols/default');
+  		return Paths.getSparrowAtlas('androidcontrols/' + FlxG.save.data.hitbox);
 	  }
 	}
 

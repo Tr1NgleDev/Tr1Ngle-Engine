@@ -4,6 +4,7 @@ import flixel.*;
 import flixel.text.FlxText;
 import flixel.tweens.FlxTween;
 import flixel.util.*;
+import flixel.graphics.FlxGraphic;
 import flixel.ui.FlxButton;
 import flixel.addons.ui.FlxUIButton;
 
@@ -24,6 +25,16 @@ class HitboxSkinState extends MusicBeatState {
         bg.color = 0xFF2b2e94;
         bg.updateHitbox();
         add(bg);
+        
+        var hitbox_hint:FlxSprite;
+        var hitbox:FlxSprite
+        
+        hitbox_hint = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/' + FlxG.save.data.hitbox + '_hint'));
+		    hitbox_hint.alpha = 0.75;
+		    add(hitbox_hint);
+		    
+		    hitbox = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/' + FlxG.save.data.hitbox));
+		    add(hitbox);
 
         arrow1 = new FlxSprite(5, 5);
         arrow1.frames = Paths.getSparrowAtlas('campaign_menu_UI_assets');
@@ -64,7 +75,11 @@ class HitboxSkinState extends MusicBeatState {
         {
             if (touch.overlaps(arrow1) && touch.justPressed)
             {
+                remove(hitbox_hint);
+                remove(hitbox);
                 changeThing(-1);
+                add(hitbox_hint);
+                add(hitbox);
                 arrow1.animation.play('pressed');
                 new FlxTimer().start(0.5, function(tmr:FlxTimer){
                     arrow1.animation.play('idle');
@@ -72,7 +87,11 @@ class HitboxSkinState extends MusicBeatState {
             }
             else if (touch.overlaps(arrow2) && touch.justPressed)
             {
+                remove(hitbox_hint);
+                remove(hitbox);
                 changeThing(1);
+                add(hitbox_hint);
+                add(hitbox);
                 arrow2.animation.play('pressed');
                 new FlxTimer().start(0.5, function(tmr:FlxTimer){
                     arrow2.animation.play('idle');
@@ -82,7 +101,11 @@ class HitboxSkinState extends MusicBeatState {
 
         if (controls.LEFT_P)
         {
-            changeThing(-1);
+            remove(hitbox_hint);
+                remove(hitbox);
+                changeThing(-1);
+                add(hitbox_hint);
+                add(hitbox);
             arrow1.animation.play('pressed');
             new FlxTimer().start(0.5, function(tmr:FlxTimer){
                 arrow1.animation.play('idle');
@@ -90,7 +113,11 @@ class HitboxSkinState extends MusicBeatState {
         }
         else if (controls.RIGHT_P)
         {
-            changeThing(1);
+            remove(hitbox_hint);
+                remove(hitbox);
+                changeThing(1);
+                add(hitbox_hint);
+                add(hitbox);
             arrow2.animation.play('pressed');
             new FlxTimer().start(0.5, function(tmr:FlxTimer){
                 arrow2.animation.play('idle');
@@ -108,8 +135,10 @@ class HitboxSkinState extends MusicBeatState {
             curSelected = menuItems.length - 1;
         trace("length of menu items: "+menuItems.length+" currently selected:"+curSelected);
 
-        if (menuItems[curSelected] == 'DEFAULT')
-            daName.text = 'REGULAR';
+        if (menuItems[curSelected] == 'default')
+            daName.text = 'luckydog7';
+        else if (menuItems[curSelected] == 'thedumbass')
+            daName.text = 'The Dumbass';
         else
             daName.text = menuItems[curSelected];
 
@@ -135,6 +164,12 @@ class HitboxSkinState extends MusicBeatState {
                 return 1;
             case 'neon':
                 return 2;
+            case 'stock':
+                return 3;
+            case 'retrostyle':
+                return 4;
+            case 'thedumbass':
+                return 5;
         }
         return 0;
     }

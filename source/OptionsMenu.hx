@@ -41,6 +41,7 @@ class OptionsMenu extends MusicBeatState
 		]),
 		new OptionCatagory("Mobile Controls",[]),
 		new OptionCatagory("Keyboard Controls",[]),
+		new OptionCatagory("Hitbox Selection",[]),
 		new OptionCatagory("Exit",[]),
 	];
 	
@@ -210,6 +211,10 @@ class OptionsMenu extends MusicBeatState
 						else if(options[curSelected].getName() == "Mobile Controls")
 						{
 							FlxG.switchState(new android.AndroidControlsMenu());
+						}
+						else if(options[curSelected].getName() == "Hitbox Selection")
+						{
+							FlxG.switchState(new HitboxSkinState());
 						}
 						else if(options[curSelected].getName() == "Exit")
 						{

@@ -12,6 +12,8 @@ class HitboxSkinState extends MusicBeatState {
     var daName:FlxText;
     var arrow1:FlxSprite;
     var arrow2:FlxSprite;
+    var hitbox:FlxSprite;
+    var hitbox_hint:FlxSprite;
     var menuItems:Array<String> = ['default','saw','neon','stock','retrostyle','thedumbass'];
     var curSelected:Int = 0;
     var exitButton:FlxUIButton;
@@ -25,9 +27,6 @@ class HitboxSkinState extends MusicBeatState {
         bg.color = 0xFF2b2e94;
         bg.updateHitbox();
         add(bg);
-        
-        var hitbox_hint:FlxSprite;
-        var hitbox:FlxSprite;
         
         hitbox_hint = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/' + FlxG.save.data.hitbox + '_hint'));
 		    hitbox_hint.alpha = 0.75;

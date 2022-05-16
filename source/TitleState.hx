@@ -51,7 +51,7 @@ class TitleState extends MusicBeatState
 		
 		if (FlxG.save.data.hitbox = null)
 		{
-		  FlxG.save.data.hitbox = 'default'
+		  FlxG.save.data.hitbox = 'default';
 		}
 		
 		FlxG.fullscreen = FlxG.save.data.fullscreen;

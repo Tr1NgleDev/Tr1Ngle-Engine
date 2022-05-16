@@ -7,7 +7,7 @@ import flixel.util.*;
 import flixel.ui.FlxButton;
 import flixel.addons.ui.FlxUIButton;
 
-class NoteSkinsState extends MusicBeatState {
+class HitboxSkinState extends MusicBeatState {
     var daName:FlxText;
     var viewer:FlxSprite;
     var arrow1:FlxSprite;

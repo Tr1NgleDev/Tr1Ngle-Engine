@@ -49,6 +49,8 @@ class TitleState extends MusicBeatState
 		FlxG.android.preventDefaultKeys = [BACK];
 		#end
 		
+		FlxG.save.data.hitbox = 'default'
+		
 		FlxG.fullscreen = FlxG.save.data.fullscreen;
 		#if polymod
 		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});

@@ -27,7 +27,7 @@ class HitboxSkinState extends MusicBeatState {
         add(bg);
         
         var hitbox_hint:FlxSprite;
-        var hitbox:FlxSprite
+        var hitbox:FlxSprite;
         
         hitbox_hint = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/' + FlxG.save.data.hitbox + '_hint'));
 		    hitbox_hint.alpha = 0.75;

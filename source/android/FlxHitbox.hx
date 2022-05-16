@@ -73,7 +73,6 @@ class FlxHitbox extends FlxSpriteGroup
 	{
   		return Paths.getSparrowAtlas('androidcontrols/' + FlxG.save.data.hitbox);
 	  }
-	}
 
 	override public function destroy():Void
 	{

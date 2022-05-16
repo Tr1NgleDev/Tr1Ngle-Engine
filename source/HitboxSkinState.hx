@@ -146,7 +146,7 @@ class NoteSkinsState extends MusicBeatState {
             case 'saw':
                 return 1;
             case 'neon':
-                return 2
+                return 2;
         }
         return 0;
     }

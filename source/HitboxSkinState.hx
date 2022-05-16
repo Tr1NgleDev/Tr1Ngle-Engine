@@ -11,7 +11,7 @@ class HitboxSkinState extends MusicBeatState {
     var daName:FlxText;
     var arrow1:FlxSprite;
     var arrow2:FlxSprite;
-    var menuItems:Array<String> = ['default','saw','neon'];
+    var menuItems:Array<String> = ['default','saw','neon','stock','retrostyle','thedumbass'];
     var curSelected:Int = 0;
     var exitButton:FlxUIButton;
     var exitNSaveButton:FlxUIButton;

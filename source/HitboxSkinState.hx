@@ -28,11 +28,11 @@ class HitboxSkinState extends MusicBeatState {
         bg.updateHitbox();
         add(bg);
         
-        hitbox_hint = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/' + FlxG.save.data.hitbox + '_hint'));
+        hitbox_hint = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/' + menuItems[curSelected] + '_hint'));
 		    hitbox_hint.alpha = 0.75;
 		    add(hitbox_hint);
 		    
-		    hitbox = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/' + FlxG.save.data.hitbox));
+		    hitbox = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/' + menuItems[curSelected]));
 		    add(hitbox);
 
         arrow1 = new FlxSprite(5, 5);

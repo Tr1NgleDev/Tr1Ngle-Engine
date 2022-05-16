@@ -9,7 +9,6 @@ import flixel.addons.ui.FlxUIButton;
 
 class HitboxSkinState extends MusicBeatState {
     var daName:FlxText;
-    var viewer:FlxSprite;
     var arrow1:FlxSprite;
     var arrow2:FlxSprite;
     var menuItems:Array<String> = ['default','saw','neon'];
@@ -46,13 +45,6 @@ class HitboxSkinState extends MusicBeatState {
         arrow2.animation.addByPrefix('pressed', 'arrow push right', 24, false);
         arrow2.animation.play('idle', false);
         add(arrow2);
-
-        viewer = new FlxSprite(1000, 300);
-        viewer.screenCenter();
-		add(viewer);
-        viewer.frames = Paths.getSparrowAtlas('notes/' + menuItems[curSelected] + "_assets",'shared');
-        viewer.animation.addByPrefix('confirm', 'up confirm', 24, true);
-		viewer.animation.play('confirm');
 
         exitNSaveButton = new FlxUIButton(895, 5, "Exit and save", exitThing);
         exitNSaveButton.resize(195,50);
@@ -115,10 +107,6 @@ class HitboxSkinState extends MusicBeatState {
         if (curSelected < 0)
             curSelected = menuItems.length - 1;
         trace("length of menu items: "+menuItems.length+" currently selected:"+curSelected);
-
-        viewer.frames = Paths.getSparrowAtlas('notes/' + menuItems[curSelected] + '_assets', 'shared');
-        viewer.animation.addByPrefix('confirm', 'up confirm', 24, true);
-        viewer.animation.play('confirm');
 
         if (menuItems[curSelected] == 'DEFAULT')
             daName.text = 'REGULAR';

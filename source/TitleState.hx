@@ -49,11 +49,6 @@ class TitleState extends MusicBeatState
 		FlxG.android.preventDefaultKeys = [BACK];
 		#end
 		
-		if (FlxG.save.data.hitbox = null)
-		{
-		  FlxG.save.data.hitbox = 'default';
-		}
-		
 		FlxG.fullscreen = FlxG.save.data.fullscreen;
 		#if polymod
 		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
@@ -69,6 +64,8 @@ class TitleState extends MusicBeatState
 		
 
 		FlxG.save.bind('funkin', 'ninjamuffin99');
+
+    Save.initSave();
 
 		Highscore.load();
 

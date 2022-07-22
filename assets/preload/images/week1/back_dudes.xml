@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="back_dudes.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="back dudes0000" x="0" y="0" width="1712" height="436" frameX="0" frameY="0" frameWidth="1712" frameHeight="437"/>
+	<SubTexture name="back dudes0001" x="0" y="0" width="1712" height="436" frameX="0" frameY="0" frameWidth="1712" frameHeight="437"/>
+	<SubTexture name="back dudes0002" x="0" y="436" width="1712" height="430" frameX="0" frameY="-7" frameWidth="1712" frameHeight="437"/>
+	<SubTexture name="back dudes0003" x="0" y="436" width="1712" height="430" frameX="0" frameY="-7" frameWidth="1712" frameHeight="437"/>
+	<SubTexture name="back dudes0004" x="0" y="1615" width="1712" height="361" frameX="0" frameY="-76" frameWidth="1712" frameHeight="437"/>
+	<SubTexture name="back dudes0005" x="0" y="1615" width="1712" height="361" frameX="0" frameY="-76" frameWidth="1712" frameHeight="437"/>
+	<SubTexture name="back dudes0006" x="0" y="1245" width="1712" height="370" frameX="0" frameY="-67" frameWidth="1712" frameHeight="437"/>
+	<SubTexture name="back dudes0007" x="0" y="1245" width="1712" height="370" frameX="0" frameY="-67" frameWidth="1712" frameHeight="437"/>
+	<SubTexture name="back dudes0008" x="0" y="866" width="1712" height="379" frameX="0" frameY="-58" frameWidth="1712" frameHeight="437"/>
+	<SubTexture name="back dudes0009" x="0" y="866" width="1712" height="379" frameX="0" frameY="-58" frameWidth="1712" frameHeight="437"/>
+	<SubTexture name="back dudes0010" x="0" y="866" width="1712" height="379" frameX="0" frameY="-58" frameWidth="1712" frameHeight="437"/>
+	<SubTexture name="back dudes0011" x="0" y="866" width="1712" height="379" frameX="0" frameY="-58" frameWidth="1712" frameHeight="437"/>
+	<SubTexture name="back dudes0012" x="0" y="866" width="1712" height="379" frameX="0" frameY="-58" frameWidth="1712" frameHeight="437"/>
+	<SubTexture name="back dudes0013" x="0" y="866" width="1712" height="379" frameX="0" frameY="-58" frameWidth="1712" frameHeight="437"/>
+	<SubTexture name="back dudes0014" x="0" y="866" width="1712" height="379" frameX="0" frameY="-58" frameWidth="1712" frameHeight="437"/>
+</TextureAtlas>

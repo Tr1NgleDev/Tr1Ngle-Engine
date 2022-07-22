@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="road.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="road0000" x="0" y="1701" width="6537" height="1603" frameX="0" frameY="0" frameWidth="6537" frameHeight="1701"/>
+	<SubTexture name="road0001" x="0" y="1701" width="6537" height="1603" frameX="0" frameY="0" frameWidth="6537" frameHeight="1701"/>
+	<SubTexture name="road0002" x="0" y="0" width="6537" height="1701"/>
+</TextureAtlas>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="central_dudes.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="mid dudes0000" x="0" y="0" width="1896" height="305" frameX="0" frameY="0" frameWidth="1896" frameHeight="306"/>
+	<SubTexture name="mid dudes0001" x="0" y="0" width="1896" height="305" frameX="0" frameY="0" frameWidth="1896" frameHeight="306"/>
+	<SubTexture name="mid dudes0002" x="0" y="305" width="1896" height="298" frameX="0" frameY="-8" frameWidth="1896" frameHeight="306"/>
+	<SubTexture name="mid dudes0003" x="0" y="305" width="1896" height="298" frameX="0" frameY="-8" frameWidth="1896" frameHeight="306"/>
+	<SubTexture name="mid dudes0004" x="0" y="1158" width="1896" height="259" frameX="0" frameY="-47" frameWidth="1896" frameHeight="306"/>
+	<SubTexture name="mid dudes0005" x="0" y="1158" width="1896" height="259" frameX="0" frameY="-47" frameWidth="1896" frameHeight="306"/>
+	<SubTexture name="mid dudes0006" x="0" y="891" width="1896" height="267" frameX="0" frameY="-39" frameWidth="1896" frameHeight="306"/>
+	<SubTexture name="mid dudes0007" x="0" y="891" width="1896" height="267" frameX="0" frameY="-39" frameWidth="1896" frameHeight="306"/>
+	<SubTexture name="mid dudes0008" x="0" y="603" width="1896" height="288" frameX="0" frameY="-18" frameWidth="1896" frameHeight="306"/>
+	<SubTexture name="mid dudes0009" x="0" y="603" width="1896" height="288" frameX="0" frameY="-18" frameWidth="1896" frameHeight="306"/>
+	<SubTexture name="mid dudes0010" x="0" y="603" width="1896" height="288" frameX="0" frameY="-18" frameWidth="1896" frameHeight="306"/>
+	<SubTexture name="mid dudes0011" x="0" y="603" width="1896" height="288" frameX="0" frameY="-18" frameWidth="1896" frameHeight="306"/>
+	<SubTexture name="mid dudes0012" x="0" y="603" width="1896" height="288" frameX="0" frameY="-18" frameWidth="1896" frameHeight="306"/>
+	<SubTexture name="mid dudes0013" x="0" y="603" width="1896" height="288" frameX="0" frameY="-18" frameWidth="1896" frameHeight="306"/>
+	<SubTexture name="mid dudes0014" x="0" y="603" width="1896" height="288" frameX="0" frameY="-18" frameWidth="1896" frameHeight="306"/>
+</TextureAtlas>

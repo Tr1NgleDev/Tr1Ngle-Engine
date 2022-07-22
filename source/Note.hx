@@ -5,22 +5,51 @@ import flixel.FlxG;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.math.FlxMath;
 import flixel.util.FlxColor;
-#if polymod
-import polymod.format.ParseRules.TargetSignatureElement;
-#end
 
 using StringTools;
 
-class Note extends FlxSprite
+/*enum abstract EventsNoteType(String) to String from String
+{
+	var ChangeDadCharacter = "changeDadCharacter";
+	var ChangeBFCharacter = "changeBFCharacter";
+
+	var ChromaticAberrations = "chromaticAberrations";
+	var Vignette = "vignette";
+	
+	var ChangeCameraBeat = "changeCameraBeat";
+	var ChangeZoom = "changeZoom";
+	var PlayBFAnim = "playBFAnim";
+	var PlayDadAnim = "playDadAnim";
+	var PlayGFAnim = "playGFAnim";
+	var ShakeCamera = "shakeCamera";
+	var PointAtGF = "pointAtGF";
+
+	var GrayScale = "grayScale";
+	var InvertColor = "invertColor";
+	var Pixelate = "pixelate";
+
+	var ZoomCam = "zoomCam";
+	var RotateCam = "rotateCam";
+
+	var WavyStrumLine = "wavyStrumLine";
+
+	var Countdown = "countdown";
+
+	var CallFunction = "callFunction";
+}*/
+
+class Note extends Sprite
 {
 	public var strumTime:Float = 0;
-
+	public var eventType:String;
+	public var eventArgs:Array<Dynamic>;
 	public var mustPress:Bool = false;
 	public var noteData:Int = 0;
 	public var canBeHit:Bool = false;
 	public var tooLate:Bool = false;
 	public var wasGoodHit:Bool = false;
 	public var prevNote:Note;
+	public var eventNote:Bool = false;
 
 	public var sustainLength:Float = 0;
 	public var isSustainNote:Bool = false;
@@ -35,7 +64,7 @@ class Note extends FlxSprite
 	public static var RED_NOTE:Int = 3;
 
 
-	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?noteSkin:String = "")
+	public function new(strumTime:Float, noteData:Int, ?eventNote:Bool, ?prevNote:Note, ?sustainNote:Bool = false, ?noteSkin:String = "")
 	{
 		super();
 
@@ -44,11 +73,12 @@ class Note extends FlxSprite
 
 		this.prevNote = prevNote;
 		isSustainNote = sustainNote;
+		this.eventNote = eventNote;
 
 		x += 50;
 		// MAKE SURE ITS DEFINITELY OFF SCREEN?
 		y -= 2000;
-		this.strumTime = strumTime;
+		this.strumTime = FlxMath.roundDecimal(strumTime + Conductor.offset, 2);
 
 		this.noteData = noteData;
 
@@ -57,7 +87,7 @@ class Note extends FlxSprite
 		switch (daStage)
 		{
 			case 'school' | 'schoolEvil':
-				loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels'), true, 17, 17);
+				loadGraphics(Paths.image('weeb/pixelUI/arrows-pixels'), true, 17, 17);
 
 				animation.add('greenScroll', [6]);
 				animation.add('redScroll', [7]);
@@ -66,7 +96,7 @@ class Note extends FlxSprite
 
 				if (isSustainNote)
 				{
-					loadGraphic(Paths.image('weeb/pixelUI/arrowEnds'), true, 7, 6);
+					loadGraphics(Paths.image('weeb/pixelUI/arrowEnds'), true, 7, 6);
 
 					animation.add('purpleholdend', [4]);
 					animation.add('greenholdend', [6]);
@@ -189,8 +219,99 @@ class Note extends FlxSprite
 				
 			}
 		}
+		if(eventNote)
+			loadGraphics(Paths.image("Event_Note"));
 	}
+	/*public function changeSkin(noteSkin:String)
+	{
+		var daStage:String = PlayState.curStage;
 
+		switch (daStage)
+		{
+			case 'school' | 'schoolEvil':
+				loadGraphics(Paths.image('weeb/pixelUI/arrows-pixels'), true, 17, 17);
+
+				animation.add('greenScroll', [6]);
+				animation.add('redScroll', [7]);
+				animation.add('blueScroll', [5]);
+				animation.add('purpleScroll', [4]);
+
+				if (isSustainNote)
+				{
+					loadGraphics(Paths.image('weeb/pixelUI/arrowEnds'), true, 7, 6);
+
+					animation.add('purpleholdend', [4]);
+					animation.add('greenholdend', [6]);
+					animation.add('redholdend', [7]);
+					animation.add('blueholdend', [5]);
+
+					animation.add('purplehold', [0]);
+					animation.add('greenhold', [2]);
+					animation.add('redhold', [3]);
+					animation.add('bluehold', [1]);
+				}
+
+				setGraphicSize(Std.int(width * PlayState.daPixelZoom));
+				updateHitbox();
+
+			default:
+				if(noteSkin == "")
+				{
+					
+					frames = Paths.getSparrowAtlas("NOTE_assets");
+					animation.addByPrefix('greenScroll', 'green0');
+					animation.addByPrefix('redScroll', 'red0');
+					animation.addByPrefix('blueScroll', 'blue0');
+					animation.addByPrefix('purpleScroll', 'purple0');
+					animation.addByPrefix('purpleholdend', 'pruple end hold');
+					animation.addByPrefix('greenholdend', 'green hold end');
+					animation.addByPrefix('redholdend', 'red hold end');
+					animation.addByPrefix('blueholdend', 'blue hold end');
+					animation.addByPrefix('purplehold', 'purple hold piece');
+					animation.addByPrefix('greenhold', 'green hold piece');
+					animation.addByPrefix('redhold', 'red hold piece');
+					animation.addByPrefix('bluehold', 'blue hold piece');
+					setGraphicSize(Std.int(width * 0.7));
+					updateHitbox();
+					antialiasing = true;
+				}
+				else
+				{
+					frames = Paths.getSparrowAtlas(noteSkin);
+					animation.addByPrefix('greenScroll', 'green0');
+					animation.addByPrefix('redScroll', 'red0');
+					animation.addByPrefix('blueScroll', 'blue0');
+					animation.addByPrefix('purpleScroll', 'purple0');
+					animation.addByPrefix('purpleholdend', 'pruple end hold');
+					animation.addByPrefix('greenholdend', 'green hold end');
+					animation.addByPrefix('redholdend', 'red hold end');
+					animation.addByPrefix('blueholdend', 'blue hold end');
+					animation.addByPrefix('purplehold', 'purple hold piece');
+					animation.addByPrefix('greenhold', 'green hold piece');
+					animation.addByPrefix('redhold', 'red hold piece');
+					animation.addByPrefix('bluehold', 'blue hold piece');
+					setGraphicSize(Std.int(width * 0.7));
+					updateHitbox();
+					antialiasing = true;
+				}
+		}
+
+		switch (noteData)
+		{
+			case 0:
+				x += swagWidth * 0;
+				animation.play('purpleScroll');
+			case 1:
+				x += swagWidth * 1;
+				animation.play('blueScroll');
+			case 2:
+				x += swagWidth * 2;
+				animation.play('greenScroll');
+			case 3:
+				x += swagWidth * 3;
+				animation.play('redScroll');
+		}
+	}*/
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);

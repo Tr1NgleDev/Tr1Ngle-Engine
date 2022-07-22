@@ -25,12 +25,14 @@ import lime.utils.Assets;
 import openfl.geom.Matrix;
 import openfl.display.BitmapData;
 import openfl.utils.AssetType;
+import openfl.utils.Assets as OpenFlAssets;
 import lime.graphics.Image;
 import flixel.graphics.FlxGraphic;
 import flixel.animation.FlxAnimation;
 
 import openfl.utils.AssetManifest;
 import openfl.utils.AssetLibrary;
+
 
 #if cpp
 import Sys;
@@ -40,7 +42,7 @@ import sys.FileSystem;
 
 using StringTools;
 
-class BGSprite extends FlxSprite
+class BGSprite extends Sprite
 {
 	private var idle:String;
 	public function new(name:String, x:Float = 0, y:Float = 0, ?scrollFactorX:Float = 1, ?scrollFactorY:Float = 1, ?animArray:Array<String> = null, ?loopAnim:Bool = false)
@@ -62,7 +64,7 @@ class BGSprite extends FlxSprite
 		}
 		else
 		{
-			loadGraphic(Paths.image(name));
+			loadGraphics(Paths.image(name));
 			active = false;
 		}
 		scrollFactor.set(scrollFactorX, scrollFactorY);

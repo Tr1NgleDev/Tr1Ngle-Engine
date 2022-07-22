@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="arrowsMENU.png">
+	<!-- Created with Adobe Animate version 21.0.3.38773 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="arrowsMENU arrow left0000" x="0" y="0" width="47" height="84"/>
+	<SubTexture name="arrowsMENU arrow left pressed0000" x="47" y="0" width="51" height="92"/>
+	<SubTexture name="arrowsMENU arrow right0000" x="98" y="0" width="47" height="84"/>
+	<SubTexture name="arrowsMENU arrow right pressed0000" x="145" y="0" width="51" height="92"/>
+</TextureAtlas>

@@ -9,23 +9,6 @@ typedef SwagSection =
 	var bpm:Int;
 	var changeBPM:Bool;
 	var altAnim:Bool;
-
-	var changeBFCharacter:Bool;
-	var changeBFCharacterChar:String;
-
-	var changeDadCharacter:Bool;
-	var changeDadCharacterChar:String;
-
-
-	var changeCameraBeat:Bool;
-	var cameraBeatSpeed:Int;
-	var cameraBeatZoom:Int;
-
-
-	var chromaticAberrationsShader:Bool;
-	
-	var vignetteShader:Bool;
-	var vignetteShaderRadius:Float;
 }
 
 class Section

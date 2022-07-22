@@ -22,7 +22,7 @@ class MainMenuState extends MusicBeatState
 {
 	var curSelected:Int = 0;
 
-	var menuItems:FlxTypedGroup<FlxSprite>;
+	var menuItems:FlxTypedGroup<Sprite>;
 
 	#if !switch
 	var optionShit:Array<String> = ['story mode', 'freeplay', 'donate', 'options'];
@@ -30,7 +30,7 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = ['story mode', 'freeplay'];
 	#end
 
-	var magenta:FlxSprite;
+	var magenta:Sprite;
 	var camFollow:FlxObject;
 
 	override function create()
@@ -44,17 +44,14 @@ class MainMenuState extends MusicBeatState
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
 
-		if (!FlxG.sound.music.playing)
+		if (!FlxG.sound.music.playing || FlxG.sound.music.volume == 0)
 		{
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 		}
 
-		CoolUtil.preloadImages(this);
-		CoolUtil.preloadImages(this);
-
 		persistentUpdate = persistentDraw = true;
 
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+		var bg:Sprite = new Sprite(-80).loadGraphics(Paths.image('menuBG'));
 		bg.scrollFactor.x = 0;
 		bg.scrollFactor.y = 0.17;
 		bg.setGraphicSize(Std.int(bg.width * 1.2));
@@ -66,7 +63,7 @@ class MainMenuState extends MusicBeatState
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
-		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
+		magenta = new Sprite(-80).loadGraphics(Paths.image('menuDesat'));
 		magenta.scrollFactor.x = 0;
 		magenta.scrollFactor.y = 0.17;
 		magenta.setGraphicSize(Std.int(magenta.width * 1.2));
@@ -78,14 +75,14 @@ class MainMenuState extends MusicBeatState
 		add(magenta);
 		// magenta.scrollFactor.set();
 
-		menuItems = new FlxTypedGroup<FlxSprite>();
+		menuItems = new FlxTypedGroup<Sprite>();
 		add(menuItems);
 
 		var tex = Paths.getSparrowAtlas('FNF_main_menu_assets');
 
 		for (i in 0...optionShit.length)
 		{
-			var menuItem:FlxSprite = new FlxSprite(0, -440 + (i * 160));
+			var menuItem:Sprite = new Sprite(0, -440 + (i * 160));
 			menuItem.frames = tex;
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
@@ -117,11 +114,10 @@ class MainMenuState extends MusicBeatState
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
 
-		var engineVersionShit:FlxText = new FlxText(5, FlxG.height - 18, 0, "Tr1NgleEngine version: 1.6.0", 12);
+		var engineVersionShit:FlxText = new FlxText(5, FlxG.height - 18, 0, "Tr1NgleEngine version:" + Main.engineVersion, 12);
 		engineVersionShit.scrollFactor.set();
 		engineVersionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(engineVersionShit);
-
 		
 		FlxG.camera.follow(camFollow, null, 0.06);
 		
@@ -151,13 +147,21 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
+<<<<<<< HEAD
 			if (controls.UP_P)
+=======
+			if (controls.UP_PUI)
+>>>>>>> e5dca5e5d0ffa1bd7a713985ec1cf3b9aa588618
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'), 1, false);
 				changeItem(-1);
 			}
 
+<<<<<<< HEAD
 			if (controls.DOWN_P)
+=======
+			if (controls.DOWN_PUI)
+>>>>>>> e5dca5e5d0ffa1bd7a713985ec1cf3b9aa588618
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'), 1, false);
 				changeItem(1);
@@ -170,7 +174,6 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
-				CoolUtil.preloadImages(this);
 				if (optionShit[curSelected] == 'donate')
 				{
 					#if linux
@@ -186,7 +189,7 @@ class MainMenuState extends MusicBeatState
 
 					FlxFlicker.flicker(magenta, 1.1, 0.15, false);
 
-					menuItems.forEach(function(spr:FlxSprite)
+					menuItems.forEach(function(spr:Sprite)
 					{
 						if (curSelected != spr.ID)
 						{
@@ -225,7 +228,7 @@ class MainMenuState extends MusicBeatState
 
 		super.update(elapsed);
 
-		menuItems.forEach(function(spr:FlxSprite)
+		menuItems.forEach(function(spr:Sprite)
 		{
 			spr.screenCenter(X);
 			if (spr.ID == curSelected)
@@ -245,7 +248,7 @@ class MainMenuState extends MusicBeatState
 		if (curSelected < 0)
 			curSelected = menuItems.length - 1;
 
-		menuItems.forEach(function(spr:FlxSprite)
+		menuItems.forEach(function(spr:Sprite)
 		{
 			spr.animation.play('idle');
 

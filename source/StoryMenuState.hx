@@ -11,8 +11,13 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
+import flixel.math.FlxPoint;
 import lime.net.curl.CURLCode;
-
+import lime.utils.Assets;
+#if desktop
+import sys.FileSystem;
+import sys.io.File;
+#end
 #if windows
 import Discord.DiscordClient;
 #end
@@ -78,14 +83,19 @@ class StoryMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Story Mode Menu", null);
 		#end
-
+		if (!FlxG.sound.music.playing || FlxG.sound.music.volume == 0)
+		{
+			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+		}
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
 
 		if (FlxG.sound.music != null)
 		{
-			if (!FlxG.sound.music.playing)
+			if (!FlxG.sound.music.playing){
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			}
+				
 		}
 
 		persistentUpdate = persistentDraw = true;
@@ -102,6 +112,21 @@ class StoryMenuState extends MusicBeatState
 		rankText.setFormat(Paths.font("vcr.ttf"), 32);
 		rankText.size = scoreText.size;
 		rankText.screenCenter(X);
+
+
+		/*var a:ParticleSystem = new ParticleSystem(0, 0);
+        a.type = ParticleSystem.SpawnType.TriangleRegion;
+        a.region.x = 60;
+		a.emission = 0.25;
+        a.maxParticles = 5000;
+        a.lifetime = 1;
+        a.speed = 5;
+        a.endSize = new FlxPoint();
+        a.startColor = FlxColor.CYAN;
+        a.endColor = FlxColor.BLUE;
+        a.screenCenter();
+		
+*/
 
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
 		var yellowBG:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 400, 0xFFF9CF51);
@@ -193,7 +218,7 @@ class StoryMenuState extends MusicBeatState
 		add(txtWeekTitle);
 
 		updateText();
-
+		//add(a);
 		trace("Line 165");
 
     #if android
@@ -226,29 +251,51 @@ class StoryMenuState extends MusicBeatState
 		{
 			if (!selectedWeek)
 			{
+<<<<<<< HEAD
 				if (controls.UP_P)
+=======
+				if (controls.UP_PUI)
+>>>>>>> e5dca5e5d0ffa1bd7a713985ec1cf3b9aa588618
 				{
 					changeWeek(-1);
 				}
 
+<<<<<<< HEAD
 				if (controls.DOWN_P)
+=======
+				if (controls.DOWN_PUI)
+>>>>>>> e5dca5e5d0ffa1bd7a713985ec1cf3b9aa588618
 				{
 					changeWeek(1);
 				}
 
+<<<<<<< HEAD
 				if (controls.RIGHT_P)
+=======
+				if (controls.RIGHT_PUI)
+>>>>>>> e5dca5e5d0ffa1bd7a713985ec1cf3b9aa588618
 					rightArrow.animation.play('press')
 				else
 					rightArrow.animation.play('idle');
 
+<<<<<<< HEAD
 				if (controls.LEFT_P)
+=======
+				if (controls.LEFT_PUI)
+>>>>>>> e5dca5e5d0ffa1bd7a713985ec1cf3b9aa588618
 					leftArrow.animation.play('press');
 				else
 					leftArrow.animation.play('idle');
 
+<<<<<<< HEAD
 				if (controls.RIGHT_P)
 					changeDifficulty(1);
 				if (controls.LEFT_P)
+=======
+				if (controls.RIGHT_PUI)
+					changeDifficulty(1);
+				if (controls.LEFT_PUI)
+>>>>>>> e5dca5e5d0ffa1bd7a713985ec1cf3b9aa588618
 					changeDifficulty(-1);
 			}
 
@@ -302,12 +349,33 @@ class StoryMenuState extends MusicBeatState
 			PlayState.storyDifficulty = curDifficulty;
 
 			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+			#if desktop
+			if(FileSystem.exists(Paths.json(PlayState.storyPlaylist[0].toLowerCase() + "/" + PlayState.storyPlaylist[0].toLowerCase() + "-events")))
+				PlayState.EVENTS = EventSystemChart.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + "-events", PlayState.storyPlaylist[0].toLowerCase());
+			else
+			{
+				PlayState.EVENTS = 
+				{
+					notes: []
+				};
+			}
+			#else
+			if(Assets.exists(Paths.json(PlayState.storyPlaylist[0].toLowerCase() + "/" + PlayState.storyPlaylist[0].toLowerCase() + "-events")))
+				PlayState.EVENTS = EventSystemChart.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + "-events", PlayState.storyPlaylist[0].toLowerCase());
+			else
+			{
+				PlayState.EVENTS = 
+				{
+					notes: []
+				};
+			}
+			#end
 			PlayState.storyWeek = curWeek;
 			PlayState.campaignScore = 0;
 			PlayState.deathCounter = 0;
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
-				LoadingState.loadAndSwitchState(new PlayState(), true);
+				CoolUtil.preloadImages(new PlayState());
 			});
 		}
 	}

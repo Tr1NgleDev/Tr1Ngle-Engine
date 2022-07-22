@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Logo TE.png">
+	<!-- Created with Adobe Animate version 22.0.0.93 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Logo TE0000" x="4" y="647" width="585" height="204" frameX="-21" frameY="-7" frameWidth="627" frameHeight="218"/>
+	<SubTexture name="Logo TE0001" x="4" y="4" width="627" height="218"/>
+	<SubTexture name="Logo TE0002" x="4" y="4" width="627" height="218"/>
+	<SubTexture name="Logo TE0003" x="4" y="226" width="601" height="208" frameX="-13" frameY="-5" frameWidth="627" frameHeight="218"/>
+	<SubTexture name="Logo TE0004" x="4" y="226" width="601" height="208" frameX="-13" frameY="-5" frameWidth="627" frameHeight="218"/>
+	<SubTexture name="Logo TE0005" x="4" y="438" width="591" height="205" frameX="-18" frameY="-7" frameWidth="627" frameHeight="218"/>
+	<SubTexture name="Logo TE0006" x="4" y="438" width="591" height="205" frameX="-18" frameY="-7" frameWidth="627" frameHeight="218"/>
+	<SubTexture name="Logo TE0007" x="4" y="438" width="591" height="205" frameX="-18" frameY="-7" frameWidth="627" frameHeight="218"/>
+	<SubTexture name="Logo TE0008" x="4" y="438" width="591" height="205" frameX="-18" frameY="-7" frameWidth="627" frameHeight="218"/>
+	<SubTexture name="Logo TE0009" x="4" y="438" width="591" height="205" frameX="-18" frameY="-7" frameWidth="627" frameHeight="218"/>
+	<SubTexture name="Logo TE0010" x="4" y="438" width="591" height="205" frameX="-18" frameY="-7" frameWidth="627" frameHeight="218"/>
+	<SubTexture name="Logo TE0011" x="4" y="438" width="591" height="205" frameX="-18" frameY="-7" frameWidth="627" frameHeight="218"/>
+	<SubTexture name="Logo TE0012" x="4" y="438" width="591" height="205" frameX="-18" frameY="-7" frameWidth="627" frameHeight="218"/>
+	<SubTexture name="Logo TE0013" x="4" y="438" width="591" height="205" frameX="-18" frameY="-7" frameWidth="627" frameHeight="218"/>
+	<SubTexture name="Logo TE0014" x="4" y="438" width="591" height="205" frameX="-18" frameY="-7" frameWidth="627" frameHeight="218"/>
+</TextureAtlas>

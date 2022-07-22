@@ -33,15 +33,15 @@ class TitleState extends MusicBeatState
 {
 	static var initialized:Bool = false;
 
-	var blackScreen:FlxSprite;
+	var blackScreen:Sprite;
 	var credGroup:FlxGroup;
 	var credTextShit:Alphabet;
 	var textGroup:FlxGroup;
-	var ngSpr:FlxSprite;
+	var ngSpr:Sprite;
 
 	var curWacky:Array<String> = [];
 
-	var wackyImage:FlxSprite;
+	var wackyImage:Sprite;
 
 	override public function create():Void
 	{
@@ -50,10 +50,6 @@ class TitleState extends MusicBeatState
 		#end
 		
 		FlxG.fullscreen = FlxG.save.data.fullscreen;
-		#if polymod
-		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
-		#end
-
 		PlayerSettings.init();
 
 		curWacky = FlxG.random.getObject(getIntroTextShit());
@@ -61,27 +57,19 @@ class TitleState extends MusicBeatState
 		// DEBUG BULLSHIT
 
 		super.create();
+<<<<<<< HEAD
 		
+=======
+
+
+		FlxG.sound.volume = 0.3;
+>>>>>>> e5dca5e5d0ffa1bd7a713985ec1cf3b9aa588618
 
 		FlxG.save.bind('funkin', 'ninjamuffin99');
 
     Save.initSave();
 
 		Highscore.load();
-
-		if (FlxG.save.data.weekUnlocked != null)
-		{
-			// FIX LATER!!!
-			// WEEK UNLOCK PROGRESSION!!
-			// StoryMenuState.weekUnlocked = FlxG.save.data.weekUnlocked;
-
-			if (StoryMenuState.weekUnlocked.length < 4)
-				StoryMenuState.weekUnlocked.insert(0, true);
-
-			// QUICK PATCH OOPS!
-			if (!StoryMenuState.weekUnlocked[0])
-				StoryMenuState.weekUnlocked[0] = true;
-		}
 
 		#if FREEPLAY
 		FlxG.switchState(new FreeplayState());
@@ -101,12 +89,19 @@ class TitleState extends MusicBeatState
 			DiscordClient.shutdown();
 		 });
 		#end
+
+		if(FlxG.save.data.framerateDraw != null){
+			FlxG.updateFramerate = FlxG.save.data.framerateDraw;
+			FlxG.drawFramerate = FlxG.save.data.framerateDraw;
+		}
+			
 	}
 
-	var logoBl:FlxSprite;
-	var gfDance:FlxSprite;
+	var logoBl:Sprite;
+	var logoTE:Sprite;
+	var gfDance:Sprite;
 	var danceLeft:Bool = false;
-	var titleText:FlxSprite;
+	var titleText:Sprite;
 
 	function startIntro()
 	{
@@ -133,59 +128,67 @@ class TitleState extends MusicBeatState
 			// FlxG.sound.list.add(music);
 			// music.play();
 			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
-
 			FlxG.sound.music.fadeIn(4, 0, 0.7);
 		}
 
 		Conductor.changeBPM(102);
 		persistentUpdate = true;
 
-		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		var bg:Sprite = new Sprite().makeGraphics(FlxG.width, FlxG.height, FlxColor.BLACK);
 		// bg.antialiasing = true;
 		// bg.setGraphicSize(Std.int(bg.width * 0.6));
 		// bg.updateHitbox();
 		add(bg);
 
-		logoBl = new FlxSprite(-150, -100);
-		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
+		logoBl = new Sprite(-100, 1150); // -100 -50
+		logoBl.frames = Paths.getSparrowAtlas('FNF_Logo');
 		logoBl.antialiasing = true;
-		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
+		logoBl.animation.addByPrefix('bump', 'FNF Logo', 24);
 		logoBl.animation.play('bump');
 		logoBl.updateHitbox();
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
 
-		gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
-		gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
-		gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-		gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
-		gfDance.antialiasing = true;
-		add(gfDance);
-		add(logoBl);
+		logoTE = new Sprite(2000, 450);// 620 450
+		logoTE.frames = Paths.getSparrowAtlas('Logo_TE');
+		logoTE.antialiasing = true;
+		logoTE.animation.addByPrefix('bump', 'Logo TE', 24);
+		logoTE.animation.play('bump');
+		logoTE.updateHitbox();
 
-		titleText = new FlxSprite(100, FlxG.height * 0.8);
-		titleText.frames = Paths.getSparrowAtlas('titleEnter');
-		titleText.animation.addByPrefix('idle', "Press Enter to Begin", 24);
-		titleText.animation.addByPrefix('press', "ENTER PRESSED", 24);
+		gfDance = new Sprite(700, 1150); // 600 0
+		gfDance.frames = Paths.getSparrowAtlas('gf_starting_screen');
+		gfDance.animation.addByIndices('danceLeft', 'gf starting screen', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+		gfDance.animation.addByIndices('danceRight', 'gf starting screen', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+		gfDance.antialiasing = true;
+		add(logoBl);
+		add(gfDance);
+		add(logoTE);
+		
+
+		titleText = new Sprite(100, 1150); // 100 FlxG.height * 0.8
+		titleText.frames = Paths.getSparrowAtlas('press_enter_to_begin');
+		titleText.animation.addByPrefix('idle', "Press enter to begin 20", 24, true);
+		titleText.animation.addByPrefix('press', "Press enter to begin 2 pressed0", 24, true);
 		titleText.antialiasing = true;
 		titleText.animation.play('idle');
 		titleText.updateHitbox();
 		// titleText.screenCenter(X);
 		add(titleText);
 
-		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('logo'));
-		logo.screenCenter();
-		logo.antialiasing = true;
-		// add(logo);
-
-		FlxTween.tween(logoBl, {y: logoBl.y + 50}, 2.5, {ease: FlxEase.quadInOut, type: PINGPONG});
+		logoBl.setGraphicSize(Std.int(logoBl.width * 1.05));
+		logoTE.setGraphicSize(Std.int(logoTE.width * 1.1));
+		gfDance.setGraphicSize(Std.int(gfDance.width * 0.65));
+		logoBl.updateHitbox();
+		logoTE.updateHitbox();
+		gfDance.updateHitbox();
 		// FlxTween.tween(logo, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
 
 		credGroup = new FlxGroup();
 		add(credGroup);
 		textGroup = new FlxGroup();
 
-		blackScreen = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		blackScreen = new Sprite().makeGraphics(FlxG.width, FlxG.height, FlxColor.BLACK);
 		credGroup.add(blackScreen);
 
 		credTextShit = new Alphabet(0, 0, "ninjamuffin99\nPhantomArcade\nkawaisprite\nevilsk8er", true);
@@ -195,7 +198,7 @@ class TitleState extends MusicBeatState
 
 		credTextShit.visible = false;
 
-		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('newgrounds_logo'));
+		ngSpr = new Sprite(0, FlxG.height * 0.52).loadGraphics(Paths.image('newgrounds_logo'));
 		add(ngSpr);
 		ngSpr.visible = false;
 		ngSpr.setGraphicSize(Std.int(ngSpr.width * 0.8));
@@ -231,28 +234,13 @@ class TitleState extends MusicBeatState
 	}
 
 	var transitioning:Bool = false;
-
 	override function update(elapsed:Float)
 	{
-		
-		
+
 		if(FlxG.fullscreen != FlxG.save.data.fullscreen){
 			FlxG.fullscreen = FlxG.save.data.fullscreen;
 		}
 
-		if(FlxG.save.data.downscroll == null ||  
-			FlxG.save.data.shadersOn == null || 
-			FlxG.save.data.fps == null || 
-			FlxG.save.data.mem == null || 
-			FlxG.save.data.fullscreen == null)
-		{
-			FlxG.save.data.downscroll = false;
-			FlxG.save.data.shadersOn = false;
-			FlxG.save.data.fps = true;
-			FlxG.save.data.mem = true;
-			FlxG.save.data.fullscreen = false;
-		}
-		
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
 		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);
@@ -263,7 +251,7 @@ class TitleState extends MusicBeatState
 			FlxG.save.data.fullscreen = FlxG.fullscreen;
 		}
 
-		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
+		var pressedEnter:Bool = controls.ACCEPT;
 
 		#if mobile
 		for (touch in FlxG.touches.list)
@@ -290,8 +278,11 @@ class TitleState extends MusicBeatState
 
 		if (pressedEnter && !transitioning && skippedIntro)
 		{
+<<<<<<< HEAD
 			// If it's Friday according to da clock
 
+=======
+>>>>>>> e5dca5e5d0ffa1bd7a713985ec1cf3b9aa588618
 			titleText.animation.play('press');
 
 			FlxG.camera.flash(FlxColor.WHITE, 1);
@@ -299,7 +290,14 @@ class TitleState extends MusicBeatState
 
 			transitioning = true;
 			// FlxG.sound.music.stop();
-
+			FlxTween.cancelTweensOf(logoBl);
+			FlxTween.cancelTweensOf(logoTE);
+			FlxTween.cancelTweensOf(gfDance);
+			FlxTween.tween(logoBl, {y: 2000}, 0.8, {ease: FlxEase.quadInOut});
+			FlxTween.tween(logoTE, {y: 2000}, 0.8, {ease: FlxEase.quadInOut, startDelay: 0.4});
+			FlxTween.tween(gfDance, {y: 2000}, 0.8, {ease: FlxEase.quadInOut, startDelay: 0.425});
+			FlxTween.tween(titleText, {y: 2000}, 0.8, {ease: FlxEase.quadInOut, startDelay: 0.45});
+			
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
 					FlxG.switchState(new MainMenuState());
@@ -350,6 +348,7 @@ class TitleState extends MusicBeatState
 		super.beatHit();
 
 		logoBl.animation.play('bump', true);
+		logoTE.animation.play('bump', true);
 		danceLeft = !danceLeft;
 
 		if (danceLeft)
@@ -422,6 +421,19 @@ class TitleState extends MusicBeatState
 			FlxG.camera.flash(FlxColor.WHITE, 4);
 			remove(credGroup);
 			skippedIntro = true;
+			FlxTween.tween(logoBl, {y: -50}, 0.8, {ease: FlxEase.quadInOut, onComplete: function(twn:FlxTween)
+				{
+					FlxTween.tween(logoTE, {x: 580}, 0.5, {ease: FlxEase.quadInOut});
+					FlxTween.tween(gfDance, {y: 100}, 0.5, {ease: FlxEase.quadInOut});
+					FlxTween.tween(titleText, {y: FlxG.height * 0.725}, 0.5, {ease: FlxEase.quadInOut, onComplete: function(twn2:FlxTween)
+					{
+						FlxTween.tween(logoBl, {y: -50 + 50}, 2.5, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 1.2});
+						FlxTween.tween(gfDance, {y: -30 + 100}, 2.5, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 1.2});
+						FlxTween.tween(logoTE, {y: 450 - 30}, 2.5, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 1.2});
+						
+					}});
+				}});
+				
 		}
 	}
 }

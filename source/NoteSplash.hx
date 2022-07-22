@@ -40,46 +40,58 @@ import sys.FileSystem;
 
 using StringTools;
 
-class NoteSplash extends FlxSprite
+class NoteSplash extends Sprite
 {
 	
 
-    override public function new()
+    public function new(X:Float, Y:Float, noteData:Int)
     {
-    	super();
-    	frames = (Paths.getSparrowAtlas("noteSplashes"));
+    	super(X, Y);
+    	frames = (Paths.getSparrowAtlas("noteSplashes" + (PlayState.storyWeek == 6 ? "Pixel" : "")));
+		var addPixel:String = (PlayState.storyWeek == 6 ? " pixel" : "");
     	//impact 1
-    	animation.addByPrefix("note1-0", "note impact 1 blue", 24, false);
-    	animation.addByPrefix("note2-0", "note impact 1 green", 24, false);
-    	animation.addByPrefix("note0-0", "note impact 1 purple", 24, false);
-    	animation.addByPrefix("note3-0", "note impact 1 red", 24, false);
+    	animation.addByPrefix("note1-0", "note impact 1 blue" + addPixel, 24, false);
+    	animation.addByPrefix("note2-0", "note impact 1 green" + addPixel, 24, false);
+    	animation.addByPrefix("note0-0", "note impact 1 purple" + addPixel, 24, false);
+    	animation.addByPrefix("note3-0", "note impact 1 red" + addPixel, 24, false);
     	//impact 2
-    	animation.addByPrefix("note1-1", "note impact 2 blue", 24, false);
-    	animation.addByPrefix("note2-1", "note impact 2 green", 24, false);
-    	animation.addByPrefix("note0-1", "note impact 2 purple", 24, false);
-    	animation.addByPrefix("note3-1", "note impact 2 red", 24, false);
+    	animation.addByPrefix("note1-1", "note impact 2 blue" + addPixel, 24, false);
+    	animation.addByPrefix("note2-1", "note impact 2 green" + addPixel, 24, false);
+    	animation.addByPrefix("note0-1", "note impact 2 purple" + addPixel, 24, false);
+    	animation.addByPrefix("note3-1", "note impact 2 red" + addPixel, 24, false);
+		if(PlayState.storyWeek == 6)
+			{
+				setGraphicSize(Std.int(width * PlayState.daPixelZoom));
+				updateHitbox();
+				antialiasing = false;
+			}
+        setupNoteSplash(X, Y, noteData);
     }
 
-    public function setupNoteSplash(xPos:Float, yPos:Float, note:Int)
+    public function setupNoteSplash(x:Float, y:Float, note:Int)
     {
-    	if(note == 0)
-    	{
-    		note = 0;
-    	}
-    	x = xPos;
-    	y = yPos;
-    	alpha = 0.6;
+		this.x = x;
+		this.y = y;
+    	alpha = 0.65;
     	animation.play("note" + note + "-" + FlxG.random.int(0, 1), true);
     	
-    	animation.curAnim.frameRate = animation.curAnim.frameRate + FlxG.random.int(-2, 2);
+		
+    	animation.curAnim.frameRate = 24 + FlxG.random.int(-2, 2);
     	updateHitbox();
-    	offset.set(0.3 * width, 0.3 * height);
+		if(PlayState.storyWeek != 6)
+		{
+    		offset.set(0.3 * width, 0.3 * height);
+		}
+		else
+		{
+			offset.set(-16, 0);
+		}
     }
 
     override public function update(elapsed:Float)
     {
     	
-    	if(animation.curAnim.finished == true)
+    	if(animation.curAnim.finished)
     	{
     		kill();
     	}

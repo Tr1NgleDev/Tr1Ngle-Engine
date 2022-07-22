@@ -15,5 +15,5 @@ Cocoa:parents-christmas:5:#A0BBE9
 Eggnog:parents-christmas:5:#A0BBE9
 Winter-Horrorland:monster-christmas:5:#A0BBE9
 Senpai:senpai:6:#E978BF
-Roses:senpai:6:#E978BF
+Roses:senpai-angry:6:#E978BF
 Thorns:spirit:6:#E978BF

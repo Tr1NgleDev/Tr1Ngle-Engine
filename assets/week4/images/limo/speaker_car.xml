@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="speaker car.png">
+	<!-- Created with Adobe Animate version 22.0.0.93 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="speaker car0000" x="211" y="4" width="198" height="208" frameX="-3" frameY="0" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0001" x="211" y="4" width="198" height="208" frameX="-3" frameY="0" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0002" x="4" y="424" width="202" height="207" frameX="0" frameY="-1" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0003" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0004" x="4" y="4" width="203" height="206" frameX="0" frameY="-2" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0005" x="4" y="214" width="203" height="206" frameX="0" frameY="-2" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0006" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0007" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0008" x="210" y="424" width="202" height="205" frameX="0" frameY="-3" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0009" x="211" y="633" width="202" height="205" frameX="0" frameY="-3" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0010" x="211" y="633" width="202" height="205" frameX="0" frameY="-3" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0011" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0012" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0013" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0014" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0015" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0016" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0017" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0018" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0019" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0020" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0021" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0022" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0023" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0024" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0025" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0026" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0027" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0028" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0029" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0030" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0031" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0032" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0033" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0034" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0035" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0036" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0037" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0038" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0039" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0040" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0041" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0042" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0043" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0044" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0045" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0046" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0047" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0048" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0049" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0050" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0051" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0052" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0053" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0054" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0055" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0056" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0057" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0058" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+	<SubTexture name="speaker car0059" x="4" y="635" width="203" height="204" frameX="0" frameY="-4" frameWidth="203" frameHeight="208"/>
+</TextureAtlas>

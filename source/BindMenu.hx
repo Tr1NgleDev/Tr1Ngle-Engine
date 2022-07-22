@@ -30,21 +30,31 @@ class BindMenu extends MusicBeatState
     var keyWarning:FlxText;
     var warningTween:FlxTween;
     var warningColorTween:FlxTween;
-    var keyText:Array<String> = ["LEFT", "DOWN", "UP", "RIGHT"];
-    var defaultKeys:Array<String> = ["A", "S", "W", "D"];
+    var keyText:Array<String> = ["LEFT", "DOWN", "UP", "RIGHT", "UP", "LEFT", "RIGHT", "DOWN", "RESET", "ACCEPT", "BACK", "PAUSE"];
+    var defaultKeys:Array<String> = ["A", "S", "W", "D", "W", "A", "D", "S", "R", "Z", "X", "P"];
     var curSelected:Int = 0;
 
-    var keys:Array<String> = [FlxG.save.data.leftBind,
+    var keys:Array<String> = [
+                              FlxG.save.data.leftBind,
                               FlxG.save.data.downBind,
                               FlxG.save.data.upBind,
-                              FlxG.save.data.rightBind];
+                              FlxG.save.data.rightBind,
+                              FlxG.save.data.upBindUI,
+                              FlxG.save.data.leftBindUI,
+                              FlxG.save.data.rightBindUI,
+                              FlxG.save.data.downBindUI,
+                              FlxG.save.data.killBind,
+                              FlxG.save.data.acceptBindUI,
+                              FlxG.save.data.backBindUI,
+                              FlxG.save.data.pauseBindUI
+                            ];
 
     var tempKey:String = "";
-    var blacklist:Array<String> = ["ESCAPE", "ENTER", "BACKSPACE", "SPACE"];
+    var blacklist:Array<String> = ["ESCAPE"];
 
     var state:String = "select";
 
-    var menuBG:FlxSprite;
+    var menuBG:Sprite;
 
     var camFollow:FlxObject;
 
@@ -52,8 +62,8 @@ class BindMenu extends MusicBeatState
     private var grpControls2:FlxTypedGroup<Alphabet>;
     private var lables:FlxTypedGroup<Alphabet>;
 
-    var blackBG:FlxSprite;
-    var rebindBG:FlxSprite;
+    var blackBG:Sprite;
+    var rebindBG:Sprite;
     var rebindText:Alphabet;
     var rebindText2:Alphabet;
 
@@ -71,13 +81,13 @@ class BindMenu extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		menuBG = new FlxSprite().loadGraphic(Paths.image("menuDesat"));
+		menuBG = new Sprite().loadGraphics(Paths.image("menuDesat"));
 
 		menuBG.color = 0xFFea71fd;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
 		menuBG.updateHitbox();
         menuBG.scrollFactor.x = 0;
-        menuBG.scrollFactor.y = 0.18;
+        menuBG.scrollFactor.y = 0.06;
 		menuBG.screenCenter();
 		menuBG.antialiasing = true;
 		add(menuBG);
@@ -104,8 +114,10 @@ class BindMenu extends MusicBeatState
         var controlLabel:Alphabet = new Alphabet(0, 40, "NOTES", true, false);
         controlLabel.screenCenter(X);
         lables.add(controlLabel);
-
-        for (i in 0...4)
+        var controlLabel:Alphabet = new Alphabet(0, 40 + (70 * 4) + 110, "UI", true, false);
+        controlLabel.screenCenter(X);
+        lables.add(controlLabel);
+        for (i in 0...keyText.length)
         {
             var ctrl:Alphabet = new Alphabet(0, (70 * i) + 110, "", true, false);
             ctrl.ID = i;
@@ -120,13 +132,13 @@ class BindMenu extends MusicBeatState
 
 
 
-        blackBG = new FlxSprite(0, 0).makeGraphic(FlxG.width * 4, FlxG.height * 4, 0xFF000000);
+        blackBG = new Sprite(0, 0).makeGraphics(FlxG.width * 4, FlxG.height * 4, 0xFF000000);
         blackBG.alpha = 0.5;
         blackBG.screenCenter();
         add(blackBG);
         blackBG.visible = false;
 
-        rebindBG = new FlxSprite(0, 100).makeGraphic(Std.int(FlxG.width * 0.85), 520, 0xFFFAFD6D);
+        rebindBG = new Sprite(0, 100).makeGraphics(Std.int(FlxG.width * 0.85), 520, 0xFFFAFD6D);
         rebindBG.screenCenter(X);
         rebindBG.scrollFactor.set(0, 0);
         add(rebindBG);
@@ -181,26 +193,26 @@ class BindMenu extends MusicBeatState
                 rebindBG.visible = false;
                 rebindText.visible = false;
                 rebindText2.visible = false;
-                if (FlxG.keys.justPressed.UP)
+                if (controls.UP_PUI)
 				{
 					
 					changeItem(-1);
 				}
 
-				if (FlxG.keys.justPressed.DOWN)
+				if (controls.DOWN_PUI)
 				{
 					
 					changeItem(1);
 				}
 
-                if (FlxG.keys.justPressed.ENTER){
+                if (controls.ACCEPT){
                     FlxG.sound.play(Paths.sound("scrollMenu"), 1, false);
                    
                     state = "input";
                     
                     
                 }
-                else if(FlxG.keys.justPressed.ESCAPE){
+                else if(controls.BACK){
                     FlxG.sound.play(Paths.sound('cancelMenu'));
                     quit();
                 }
@@ -219,7 +231,7 @@ class BindMenu extends MusicBeatState
                 rebindBG.visible = true;
                 rebindText.visible = true;
                 rebindText2.visible = true;
-                if(FlxG.keys.justPressed.ESCAPE){
+                if(controls.BACK){
                     keys[curSelected] = tempKey;
                     state = "select";
                     FlxG.sound.play(Paths.sound("cancelMenu"), 1, false);
@@ -252,19 +264,19 @@ class BindMenu extends MusicBeatState
 
         
 
-        for(i in 0...4)
+        for(i in 0...keyText.length)
         {
 
             //keyTextDisplay.text += textStart + keyText[i];
             grpControls.remove(grpControls.members[i]);
-            var ctrl:Alphabet = new Alphabet(0, (70 * i) + 140, keyText[i], true, false);
+            var ctrl:Alphabet = new Alphabet(0, (70 * i) + 140 + (i >= 4 ? 90 : 0), keyText[i], true, false);
             ctrl.ID = i;
             ctrl.screenCenter(X);
             ctrl.x = 200;
             grpControls.add(ctrl);
 
             grpControls2.remove(grpControls2.members[i]);
-            var ctrl2:Alphabet = new Alphabet(0, (70 * i) + 110, (keys[i] != null ? keys[i] : "NOTHING"), false, false);
+            var ctrl2:Alphabet = new Alphabet(0, (70 * i) + 110 + (i >= 4 ? 90 : 0), (keys[i] != null ? keys[i] : "NOTHING"), false, false);
             ctrl2.ID = i;
             ctrl2.screenCenter(X);
             grpControls2.add(ctrl2);
@@ -285,6 +297,14 @@ class BindMenu extends MusicBeatState
         FlxG.save.data.downBind = keys[1];
         FlxG.save.data.leftBind = keys[0];
         FlxG.save.data.rightBind = keys[3];
+        FlxG.save.data.upBindUI = keys[4];
+        FlxG.save.data.leftBindUI = keys[5];
+        FlxG.save.data.rightBindUI = keys[6];
+        FlxG.save.data.downBindUI = keys[7];
+        FlxG.save.data.killBind = keys[8];
+        FlxG.save.data.acceptBindUI = keys[9];
+        FlxG.save.data.backBindUI = keys[10];
+        FlxG.save.data.pauseBindUI = keys[11];
 
         FlxG.save.flush();
 
@@ -294,7 +314,7 @@ class BindMenu extends MusicBeatState
 
     public function reset(){
 
-        for(i in 0...5){
+        for(i in 0...keys.length){
             keys[i] = defaultKeys[i];
         }
         quit();
@@ -337,7 +357,7 @@ class BindMenu extends MusicBeatState
         for(x in 0...keys.length)
             {
                 var oK = keys[x];
-                if(oK == r)
+                if(oK == r && ((curSelected >= 4 &&  x >= 4) || (curSelected < 4 && x < 4)))
                     keys[x] = null;
             }
         

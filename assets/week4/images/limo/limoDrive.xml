@@ -1,9 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="limoDrive.png">
-	<!-- Created with Adobe Animate version 20.0.0.17400 -->
+	<!-- Created with Adobe Animate version 22.0.0.93 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Limo stage0000" x="0" y="0" width="2048" height="646"/>
-	<SubTexture name="Limo stage0001" x="0" y="656" width="2048" height="646"/>
-	<SubTexture name="Limo stage0002" x="0" y="1312" width="2048" height="646"/>
-	<SubTexture name="Limo stage0003" x="0" y="0" width="2048" height="646"/>
+	<SubTexture name="Limo stage0000" x="4" y="4" width="4783" height="653" frameX="0" frameY="-1" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0001" x="4" y="3943" width="4783" height="651" frameX="0" frameY="-3" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0002" x="4" y="4" width="4783" height="653" frameX="0" frameY="0" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0003" x="4" y="1975" width="4783" height="652" frameX="0" frameY="-2" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0004" x="4" y="661" width="4783" height="653" frameX="0" frameY="-1" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0005" x="4" y="4598" width="4783" height="651" frameX="0" frameY="-3" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0006" x="4" y="4" width="4783" height="653" frameX="0" frameY="0" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0007" x="4" y="2631" width="4783" height="652" frameX="0" frameY="-2" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0008" x="4" y="1318" width="4783" height="653" frameX="0" frameY="-1" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0009" x="4" y="5253" width="4783" height="651" frameX="0" frameY="-3" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0010" x="4" y="4" width="4783" height="653" frameX="0" frameY="0" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0011" x="4" y="3287" width="4783" height="652" frameX="0" frameY="-2" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0012" x="4" y="1318" width="4783" height="653" frameX="0" frameY="-1" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0013" x="4" y="5253" width="4783" height="651" frameX="0" frameY="-3" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0014" x="4" y="4" width="4783" height="653" frameX="0" frameY="0" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0015" x="4" y="3287" width="4783" height="652" frameX="0" frameY="-2" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0016" x="4" y="1318" width="4783" height="653" frameX="0" frameY="-1" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0017" x="4" y="5253" width="4783" height="651" frameX="0" frameY="-3" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0018" x="4" y="4" width="4783" height="653" frameX="0" frameY="0" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0019" x="4" y="3287" width="4783" height="652" frameX="0" frameY="-2" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0020" x="4" y="1318" width="4783" height="653" frameX="0" frameY="-1" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0021" x="4" y="5253" width="4783" height="651" frameX="0" frameY="-3" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0022" x="4" y="4" width="4783" height="653" frameX="0" frameY="0" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0023" x="4" y="3287" width="4783" height="652" frameX="0" frameY="-2" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0024" x="4" y="1318" width="4783" height="653" frameX="0" frameY="-1" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0025" x="4" y="5253" width="4783" height="651" frameX="0" frameY="-3" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0026" x="4" y="4" width="4783" height="653" frameX="0" frameY="0" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0027" x="4" y="3287" width="4783" height="652" frameX="0" frameY="-2" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0028" x="4" y="1318" width="4783" height="653" frameX="0" frameY="-1" frameWidth="4783" frameHeight="654"/>
+	<SubTexture name="Limo stage0029" x="4" y="5253" width="4783" height="651" frameX="0" frameY="-3" frameWidth="4783" frameHeight="654"/>
 </TextureAtlas>

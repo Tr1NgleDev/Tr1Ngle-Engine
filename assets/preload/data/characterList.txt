@@ -15,4 +15,5 @@ monster
 bf-pixel
 senpai
 senpai-angry
+senpai-pissed
 spirit

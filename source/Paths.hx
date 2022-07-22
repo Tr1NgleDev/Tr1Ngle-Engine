@@ -1,9 +1,14 @@
 package;
 
+import lime.utils.Assets;
 import flixel.FlxG;
 import flixel.graphics.frames.FlxAtlasFrames;
 import openfl.utils.AssetType;
 import openfl.utils.Assets as OpenFlAssets;
+#if cpp
+import sys.FileSystem;
+import sys.io.File;
+#end
 
 class Paths
 {
@@ -90,14 +95,28 @@ class Paths
 		return getPath('music/$key.$SOUND_EXT', MUSIC, library);
 	}
 
-	inline static public function voices(song:String)
+	static public function voices(song:String):Array<String>
 	{
-		return 'songs:assets/songs/${song.toLowerCase()}/Voices.$SOUND_EXT';
+		if(Assets.exists('songs:assets/songs/${song.toLowerCase()}/Player1Voices.$SOUND_EXT') && Assets.exists('songs:assets/songs/${song.toLowerCase()}/Player2Voices.$SOUND_EXT'))
+			return ['songs:assets/songs/${song.toLowerCase()}/Player1Voices.$SOUND_EXT', 'songs:assets/songs/${song.toLowerCase()}/Player2Voices.$SOUND_EXT'];
+		else
+			return ['songs:assets/songs/${song.toLowerCase()}/Voices.$SOUND_EXT', ""];
+	}
+	static public function voicesFunky(song:String):Array<String>
+	{
+		if(Assets.exists('songs:assets/songs/${song.toLowerCase()}/Player1VoicesFunky.$SOUND_EXT') && Assets.exists('songs:assets/songs/${song.toLowerCase()}/Player2VoicesFunky.$SOUND_EXT'))
+			return ['songs:assets/songs/${song.toLowerCase()}/Player1VoicesFunky.$SOUND_EXT', 'songs:assets/songs/${song.toLowerCase()}/Player2VoicesFunky.$SOUND_EXT'];
+		else
+			return ['songs:assets/songs/${song.toLowerCase()}/VoicesFunky.$SOUND_EXT', ""];
 	}
 
 	inline static public function inst(song:String)
 	{
 		return 'songs:assets/songs/${song.toLowerCase()}/Inst.$SOUND_EXT';
+	}
+	inline static public function instFunky(song:String)
+	{
+		return 'songs:assets/songs/${song.toLowerCase()}/InstFunky.$SOUND_EXT';
 	}
 
 	inline static public function image(key:String, ?library:String)
@@ -105,33 +124,26 @@ class Paths
 		return getPath('images/$key.png', IMAGE, library);
 	}
 
-	inline static public function noteSkin(skinName:String)
-	{
-		return 'skins/$skinName/NOTE_assets.png';
-	}
-
-	inline static public function noteSkinXML(skinName:String)
-	{
-		return 'skins/$skinName/NOTE_assets.xml';
-	}
-
 	inline static public function font(key:String)
 	{
 		return 'assets/fonts/$key';
 	}
 
-	inline static public function getSparrowAtlas(key:String, ?library:String)
+	static public function getSparrowAtlas(key:String, ?library:String)
 	{
+		if(OpenFlAssets.cache.hasBitmapData(image(key, library)))
+		{
+			return FlxAtlasFrames.fromSparrow(OpenFlAssets.getBitmapData(image(key, library)), file('images/$key.xml', library));
+		}
 		return FlxAtlasFrames.fromSparrow(image(key, library), file('images/$key.xml', library));
 	}
 
-	inline static public function getSparrowAtlasNoteSkin(key:String, ?library:String)
+	static public function getPackerAtlas(key:String, ?library:String)
 	{
-		return FlxAtlasFrames.fromSparrow(noteSkin(key), noteSkinXML(key));
-	}
-
-	inline static public function getPackerAtlas(key:String, ?library:String)
-	{
+		if(OpenFlAssets.cache.hasBitmapData(image(key, library)))
+			{
+				return FlxAtlasFrames.fromSpriteSheetPacker(OpenFlAssets.getBitmapData(image(key, library)), file('images/$key.txt', library));
+			}
 		return FlxAtlasFrames.fromSpriteSheetPacker(image(key, library), file('images/$key.txt', library));
 	}
 }

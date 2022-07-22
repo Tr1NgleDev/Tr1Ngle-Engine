@@ -25,7 +25,10 @@ class Highscore
 	{
 		var daSong:String = formatSong(song, diff);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e5dca5e5d0ffa1bd7a713985ec1cf3b9aa588618
 		if (songScores.exists(daSong))
 		{
 			if (songScores.get(daSong) < score)
@@ -53,8 +56,11 @@ class Highscore
 
 	public static function saveWeekScore(week:Int = 1, score:Int = 0, ?diff:Int = 0):Void
 	{
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> e5dca5e5d0ffa1bd7a713985ec1cf3b9aa588618
 		var daWeek:String = formatSong('week' + week, diff);
 
 		if (songScores.exists(daWeek))
@@ -101,6 +107,8 @@ class Highscore
 			daSong += '-easy';
 		else if (diff == 2)
 			daSong += '-hard';
+		else if (diff == 3)
+			daSong += '-funky';
 
 		return daSong;
 	}

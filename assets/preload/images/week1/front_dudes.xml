@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="front_dudes.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="front dudes0000" x="0" y="0" width="1664" height="269" frameX="0" frameY="0" frameWidth="1664" frameHeight="271"/>
+	<SubTexture name="front dudes0001" x="0" y="0" width="1664" height="269" frameX="0" frameY="0" frameWidth="1664" frameHeight="271"/>
+	<SubTexture name="front dudes0002" x="0" y="269" width="1664" height="262" frameX="0" frameY="-7" frameWidth="1664" frameHeight="271"/>
+	<SubTexture name="front dudes0003" x="0" y="269" width="1664" height="262" frameX="0" frameY="-7" frameWidth="1664" frameHeight="271"/>
+	<SubTexture name="front dudes0004" x="0" y="1027" width="1664" height="236" frameX="0" frameY="-35" frameWidth="1664" frameHeight="271"/>
+	<SubTexture name="front dudes0005" x="0" y="1027" width="1664" height="236" frameX="0" frameY="-35" frameWidth="1664" frameHeight="271"/>
+	<SubTexture name="front dudes0006" x="0" y="786" width="1664" height="241" frameX="0" frameY="-28" frameWidth="1664" frameHeight="271"/>
+	<SubTexture name="front dudes0007" x="0" y="786" width="1664" height="241" frameX="0" frameY="-28" frameWidth="1664" frameHeight="271"/>
+	<SubTexture name="front dudes0008" x="0" y="531" width="1664" height="255" frameX="0" frameY="-15" frameWidth="1664" frameHeight="271"/>
+	<SubTexture name="front dudes0009" x="0" y="531" width="1664" height="255" frameX="0" frameY="-15" frameWidth="1664" frameHeight="271"/>
+	<SubTexture name="front dudes0010" x="0" y="531" width="1664" height="255" frameX="0" frameY="-15" frameWidth="1664" frameHeight="271"/>
+	<SubTexture name="front dudes0011" x="0" y="531" width="1664" height="255" frameX="0" frameY="-15" frameWidth="1664" frameHeight="271"/>
+	<SubTexture name="front dudes0012" x="0" y="531" width="1664" height="255" frameX="0" frameY="-15" frameWidth="1664" frameHeight="271"/>
+	<SubTexture name="front dudes0013" x="0" y="531" width="1664" height="255" frameX="0" frameY="-15" frameWidth="1664" frameHeight="271"/>
+	<SubTexture name="front dudes0014" x="0" y="531" width="1664" height="255" frameX="0" frameY="-15" frameWidth="1664" frameHeight="271"/>
+</TextureAtlas>

@@ -1,91 +1,47 @@
 # Friday Night Funkin': Tr1Ngle Engine
+![](assets/preload/images/Logo_TE_x_FNF.png)
 
-![](assets/preload/images/logoSingle.png)
+![GitHub all releases](https://img.shields.io/github/downloads/Tr1NgleDev/Tr1Ngle-Engine/total?style=flat-square) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/Tr1NgleDev/Tr1Ngle-Engine?label=version&style=flat-square) ![GitHub repo size](https://img.shields.io/github/repo-size/Tr1NgleDev/Tr1Ngle-Engine?style=flat-square) ![GitHub closed issues](https://img.shields.io/github/issues-closed/Tr1NgleDev/Tr1Ngle-Engine?style=flat-square) ![GitHub issues](https://img.shields.io/github/issues/Tr1NgleDev/Tr1Ngle-Engine?style=flat-square)
 
-![GitHub all releases](https://img.shields.io/github/downloads/Tr1NgleDev/Tr1Ngle-Engine/total?style=flat-square) 
+**You can use Tr1Ngle Engine as long as you credit me.**
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/Tr1NgleDev/Tr1Ngle-Engine?label=latest-version&style=flat-square)
+## Features:
+- **Events System**
+- **Remastered Sprites** (some of them)
+- **Shaders**
+- **Some stuff from 0.2.8.0 (newgrounds) version of FNF**
+- **Modifiers**
+- **Judgement Bar (optional)**
+- Additional Info
+- Customizable keybinds
+- Bot Auto Play
+- Downscroll
+- Middlescroll
+- Colored Health Bar
 
-![GitHub repo size](https://img.shields.io/github/repo-size/Tr1NgleDev/Tr1Ngle-Engine?style=flat-square)
-
-![GitHub closed issues](https://img.shields.io/github/issues-closed/Tr1NgleDev/Tr1Ngle-Engine?style=flat-square)
-
-![GitHub issues](https://img.shields.io/github/issues/Tr1NgleDev/Tr1Ngle-Engine?style=flat-square)
-
-![Lines of code](https://img.shields.io/tokei/lines/github.com/Tr1NgleDev/Tr1Ngle-Engine?style=flat-square)
-
-
-You can use Tr1Ngle Engine as long as you credit me.
-
-Features:
-		
-	Misses info;
-	
-	Accuracy info;
-		
-	Customizable keybinds;
-
-	Modifiers;
-
-	Note splashes;
-
-	Change Difficulty in pause menu;
-
-	Downscroll;
-
-	Shaders;
-
-	Middlescroll;
-
-	Blue Balled Counter in pause menu;
-
-	Time Left Counter;
-
-	Memory Counter;
-	
-	Colors for Health Bar;
-
-	Freeplay BG color changing for each song;
-
-	And More;
+And a lot more..
 
 
-Credits:
+to open events chart editor - press 8;
 
-	Friday Night Funkin' -
+## Build:
+You must have to install latest version of [Haxe](http://haxe.org/download/ "Haxe")
 
-		ninjamuffin99 - Programming
-		PhantomArcade3K and Evilsk8r - Art
-		Kawai Sprite - Music
+You also must have to install some haxe libs like flixel. For that you can open `install-libs.bat` file.
 
-	       This game was made with love to Newgrounds and its community. Extra love to Tom Fulp;
-	
-	Astro_Galaxy - BF and GF new sprites;
-	Teles - Miss sprite;
+Use `lime test windows` to build or you can just open `build-windows-if-crash.bat` or `build-windows.bat`.
 
-Build:
+btw html5 is not supported yet
 
-	install all of this:
+## Credits:
+OG Friday Night Funkin' -
+-   [NinjaMuffin99](http://github.com/ninjamuffin99 "NinjaMuffin99") - Programming
+-   [PhantomArcade3k](https://twitter.com/phantomarcade3k "PhantomArcade3k") and [Evilsk8r](https://twitter.com/evilsk8r "Evilsk8r") - Art
+-   [Kawai Sprite](https://twitter.com/kawaisprite "Kawai Sprite") - Music
 
-		# Install project dependencies
-	- haxelib install actuate
-  	- haxelib install lime 7.9.0
-  	- haxelib install openfl
-  	- haxelib install flixel
-  	- haxelib run lime setup flixel
-  	- haxelib run lime setup
-  	- haxelib install flixel-tools
-  	- haxelib install flixel-addons
-  	- haxelib install flixel-ui
-  	- haxelib install hscript
- 	- haxelib install newgrounds
-  	- haxelib install flixel-addons
- 	- haxelib git faxe https://github.com/uhrobots/faxe
-  	- haxelib git polymod https://github.com/larsiusprime/polymod.git
-  	- haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-  	- haxelib install linc_luajit
-
-
-build:
-
-  		run build-windows-if-crash.bat or build-windows.bat;
+Tr1Ngle Engine -
+-   [Tr1NgleDev](https://gamebanana.com/members/1845547 "Tr1NgleDev") (me lol) - Coding, a bit of art
+-   [Astro_Galaxy](https://gamebanana.com/members/1848784 "Astro_Galaxy") - **Amazing** art
+-   [Teles](https://gamebanana.com/members/1894648 "Teles") - Input system, Beta Testing, Miss sprite
+-   [MarcoTonni](https://gamebanana.com/members/1858469 "MarcoTonni") - Beta Testing, Ideas
+-   [Xarion](https://gamebanana.com/members/1877714 "Xarion") - Beta Testing, Ideas

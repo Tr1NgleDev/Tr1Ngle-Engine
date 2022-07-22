@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="gf starting screen.png">
+	<!-- Created with Adobe Animate version 22.0.0.93 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="gf starting screen0000" x="2171" y="2599" width="717" height="641" frameX="-2" frameY="-14" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0001" x="2888" y="1306" width="721" height="641" frameX="0" frameY="-14" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0002" x="1446" y="1959" width="721" height="639" frameX="0" frameY="-16" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0003" x="2892" y="2599" width="717" height="639" frameX="-2" frameY="-16" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0004" x="4" y="1959" width="717" height="642" frameX="-2" frameY="-13" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0005" x="725" y="1961" width="717" height="642" frameX="-2" frameY="-13" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0006" x="4" y="1311" width="717" height="644" frameX="-2" frameY="-11" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0007" x="4" y="4" width="717" height="655" frameX="-2" frameY="0" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0008" x="4" y="4" width="717" height="655" frameX="-2" frameY="0" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0009" x="4" y="4" width="717" height="655" frameX="-2" frameY="0" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0010" x="725" y="4" width="717" height="655" frameX="-2" frameY="0" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0011" x="725" y="4" width="717" height="655" frameX="-2" frameY="0" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0012" x="725" y="4" width="717" height="655" frameX="-2" frameY="0" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0013" x="1446" y="4" width="717" height="655" frameX="-2" frameY="0" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0014" x="1446" y="4" width="717" height="655" frameX="-2" frameY="0" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0015" x="1450" y="1311" width="717" height="644" frameX="-2" frameY="-11" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0016" x="2888" y="658" width="721" height="644" frameX="0" frameY="-11" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0017" x="4" y="663" width="721" height="644" frameX="0" frameY="-11" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0018" x="725" y="1313" width="717" height="644" frameX="-2" frameY="-11" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0019" x="2171" y="1951" width="717" height="644" frameX="-2" frameY="-11" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0020" x="2892" y="1951" width="717" height="644" frameX="-2" frameY="-11" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0021" x="729" y="663" width="717" height="646" frameX="-2" frameY="-9" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0022" x="2167" y="4" width="717" height="650" frameX="-2" frameY="-5" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0023" x="2167" y="4" width="717" height="650" frameX="-2" frameY="-5" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0024" x="2167" y="4" width="717" height="650" frameX="-2" frameY="-5" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0025" x="2888" y="4" width="717" height="650" frameX="-2" frameY="-5" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0026" x="2888" y="4" width="717" height="650" frameX="-2" frameY="-5" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0027" x="2888" y="4" width="717" height="650" frameX="-2" frameY="-5" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0028" x="2167" y="658" width="717" height="649" frameX="-2" frameY="-6" frameWidth="721" frameHeight="655"/>
+	<SubTexture name="gf starting screen0029" x="2167" y="658" width="717" height="649" frameX="-2" frameY="-6" frameWidth="721" frameHeight="655"/>
+</TextureAtlas>

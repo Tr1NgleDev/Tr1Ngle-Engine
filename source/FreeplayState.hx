@@ -10,7 +10,10 @@ import Math;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.utils.Assets;
-
+#if desktop
+import sys.FileSystem;
+import sys.io.File;
+#end
 
 #if windows
 import Discord.DiscordClient;
@@ -37,7 +40,9 @@ class FreeplayState extends MusicBeatState
 	var lerpCombo:Int = 0;
 	var intendedCombo:Int = 0;
 
-	public var bg:FlxSprite;
+	public var curSelectedSongHaveFunkyDiff:Bool = false;
+
+	public var bg:Sprite;
 
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
@@ -54,13 +59,12 @@ class FreeplayState extends MusicBeatState
 			songs.push(new SongMetadata(data[0], Std.parseInt(data[2]), data[1], data[3]));
 		}
 
-		/* 
-			if (FlxG.sound.music != null)
+		if (!FlxG.sound.music.playing || FlxG.sound.music.volume == 0)
 			{
-				if (!FlxG.sound.music.playing)
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
+				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 			}
-		 */
+	
+		
 
 		 #if windows
 		 // Updating Discord Rich Presence
@@ -77,7 +81,7 @@ class FreeplayState extends MusicBeatState
 
 		// LOAD CHARACTERS
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg = new Sprite().loadGraphics(Paths.image('menuDesat'));
 		bg.color = FlxColor.WHITE;
 		add(bg);
 
@@ -121,7 +125,7 @@ class FreeplayState extends MusicBeatState
 		comboText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT);
 		// scoreText.alignment = RIGHT;
 
-		var scoreBG:FlxSprite = new FlxSprite(scoreText.x - 6, 0).makeGraphic(Std.int(FlxG.width * 0.35), 66, 0xFF000000);
+		var scoreBG:Sprite = new Sprite(scoreText.x - 6, 0).makeGraphics(Std.int(FlxG.width * 0.35), 66, 0xFF000000);
 		scoreBG.alpha = 0.6;
 		add(scoreBG);
 
@@ -229,8 +233,13 @@ class FreeplayState extends MusicBeatState
 
 		maxAccText.text = "AVERAGE ACCURACY:" + lerpMaxAcc + "%";
 
+<<<<<<< HEAD
 		var upP = controls.UP_P;
 		var downP = controls.DOWN_P;
+=======
+		var upP = controls.UP_PUI;
+		var downP = controls.DOWN_PUI;
+>>>>>>> e5dca5e5d0ffa1bd7a713985ec1cf3b9aa588618
 		var accepted = controls.ACCEPT;
 
 		if (upP)
@@ -242,18 +251,30 @@ class FreeplayState extends MusicBeatState
 			changeSelection(1);
 		}
 
+<<<<<<< HEAD
 		if (controls.LEFT_P)
 			changeDiff(-1);
 		if (controls.RIGHT_P)
+=======
+		if (controls.LEFT_PUI)
+			changeDiff(-1);
+		if (controls.RIGHT_PUI)
+>>>>>>> e5dca5e5d0ffa1bd7a713985ec1cf3b9aa588618
 			changeDiff(1);
 
 		if (controls.BACK)
 		{
 			FlxG.switchState(new MainMenuState());
 		}
-
+		curSelectedSongHaveFunkyDiff = 
+		Assets.exists(Paths.json(songs[curSelected].songName.toLowerCase() + "/" + songs[curSelected].songName.toLowerCase() + "-funky"))
+		 && 
+		Assets.exists(Paths.instFunky(songs[curSelected].songName.toLowerCase()));
+		
 		if (accepted)
 		{
+			trace(curSelectedSongHaveFunkyDiff);
+			trace(Paths.instFunky(songs[curSelected].songName.toLowerCase()));
 			var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDifficulty);
 			var poop2:String = songs[curSelected].songName.toLowerCase();
 			var poop3:Int = songs[curSelected].week;
@@ -267,14 +288,36 @@ class FreeplayState extends MusicBeatState
 			
 
 			PlayState.SONG = Song.loadFromJson(poop, poop2);
+			#if desktop
+			if(FileSystem.exists(Paths.json(poop2 + "/" + poop2 + (curDifficulty != 3 ? "-events" : "-funky-events"))))
+				PlayState.EVENTS = EventSystemChart.loadFromJson(poop2 + (curDifficulty != 3 ? "-events" : "-funky-events"), poop2);
+			else
+			{
+				PlayState.EVENTS = 
+				{
+					notes: []
+				};
+			}
+			#else
+			if(Assets.exists(Paths.json(poop2 + "/" + poop2 + (curDifficulty != 3 ? "-events" : "-funky-events"))))
+				PlayState.EVENTS = EventSystemChart.loadFromJson(poop2 + (curDifficulty != 3 ? "-events" : "-funky-events"), poop2);
+			else
+			{
+				PlayState.EVENTS = 
+				{
+					notes: []
+				};
+			}
+			#end
+			
 			PlayState.isStoryMode = false;
 			PlayState.storyDifficulty = poop4;
 			PlayState.storyWeek = poop3;
 			trace('CUR WEEK' + PlayState.storyWeek);
 			
 			PlayState.deathCounter = 0;
-
-			LoadingState.loadAndSwitchState(new PlayState(), true);
+			CoolUtil.preloadImages(new PlayState());
+			
 		}
 	}
 
@@ -282,9 +325,13 @@ class FreeplayState extends MusicBeatState
 	{
 		curDifficulty += change;
 
+		var maxDiff = 3;
+		if(curSelectedSongHaveFunkyDiff)
+			maxDiff = 4;
+
 		if (curDifficulty < 0)
-			curDifficulty = 2;
-		if (curDifficulty > 2)
+			curDifficulty = maxDiff - 1;
+		if (curDifficulty > maxDiff - 1)
 			curDifficulty = 0;
 
 		#if !switch
@@ -301,6 +348,8 @@ class FreeplayState extends MusicBeatState
 				diffText.text = '< NORMAL >';
 			case 2:
 				diffText.text = "< HARD >";
+			case 3:
+				diffText.text = "< FUNKY >";
 		}
 	}
 
@@ -321,6 +370,8 @@ class FreeplayState extends MusicBeatState
 		if (curSelected >= songs.length)
 			curSelected = 0;
 
+		
+
 		// selector.y = (70 * curSelected) + 30;
 
 		#if !switch
@@ -331,7 +382,7 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		#if PRELOAD_ALL
-		FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
+		//FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
 		#end
 
 		var bullShit:Int = 0;
@@ -357,6 +408,11 @@ class FreeplayState extends MusicBeatState
 				// item.setGraphicSize(Std.int(item.width));
 			}
 		}
+		curSelectedSongHaveFunkyDiff = 
+		Assets.exists(Paths.json(songs[curSelected].songName.toLowerCase() + "/" + songs[curSelected].songName.toLowerCase() + "-funky"))
+		 && 
+		Assets.exists(Paths.instFunky(songs[curSelected].songName.toLowerCase()));
+		changeDiff(0);
 	}
 }
 

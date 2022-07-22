@@ -32,6 +32,20 @@ enum abstract Action(String) to String from String
 	var LEFT_R = "left-release";
 	var RIGHT_R = "right-release";
 	var DOWN_R = "down-release";
+
+	var UPUI = "upUI";
+	var LEFTUI = "leftUI";
+	var RIGHTUI = "rightUI";
+	var DOWNUI = "downUI";
+	var UP_PUI = "upUI-press";
+	var LEFT_PUI = "leftUI-press";
+	var RIGHT_PUI = "rightUI-press";
+	var DOWN_PUI = "downUI-press";
+	var UP_RUI = "upUI-release";
+	var LEFT_RUI = "leftUI-release";
+	var RIGHT_RUI = "rightUI-release";
+	var DOWN_RUI = "downUI-release";
+
 	var ACCEPT = "accept";
 	var BACK = "back";
 	var PAUSE = "pause";
@@ -54,6 +68,20 @@ abstract Action(String) to String from String
 	var LEFT_R = "left-release";
 	var RIGHT_R = "right-release";
 	var DOWN_R = "down-release";
+
+	var UPUI = "upUI";
+	var LEFTUI = "leftUI";
+	var RIGHTUI = "rightUI";
+	var DOWNUI = "downUI";
+	var UP_PUI = "upUI-press";
+	var LEFT_P = "leftUI-press";
+	var RIGHT_PUI = "rightUI-press";
+	var DOWN_PUI = "downUI-press";
+	var UP_RUI = "upUI-release";
+	var LEFT_RUI = "leftUI-release";
+	var RIGHT_RUI = "rightUI-release";
+	var DOWN_RUI = "downUI-release";
+
 	var ACCEPT = "accept";
 	var BACK = "back";
 	var PAUSE = "pause";
@@ -79,6 +107,10 @@ enum Control
 	LEFT;
 	RIGHT;
 	DOWN;
+	UPUI;
+	LEFTUI;
+	RIGHTUI;
+	DOWNUI;
 	RESET;
 	ACCEPT;
 	BACK;
@@ -112,6 +144,20 @@ class Controls extends FlxActionSet
 	var _leftR = new FlxActionDigital(Action.LEFT_R);
 	var _rightR = new FlxActionDigital(Action.RIGHT_R);
 	var _downR = new FlxActionDigital(Action.DOWN_R);
+
+	var _upUI = new FlxActionDigital(Action.UPUI);
+	var _leftUI = new FlxActionDigital(Action.LEFTUI);
+	var _rightUI = new FlxActionDigital(Action.RIGHTUI);
+	var _downUI = new FlxActionDigital(Action.DOWNUI);
+	var _upPUI = new FlxActionDigital(Action.UP_PUI);
+	var _leftPUI = new FlxActionDigital(Action.LEFT_PUI);
+	var _rightPUI = new FlxActionDigital(Action.RIGHT_PUI);
+	var _downPUI = new FlxActionDigital(Action.DOWN_PUI);
+	var _upRUI = new FlxActionDigital(Action.UP_RUI);
+	var _leftRUI = new FlxActionDigital(Action.LEFT_RUI);
+	var _rightRUI = new FlxActionDigital(Action.RIGHT_RUI);
+	var _downRUI = new FlxActionDigital(Action.DOWN_RUI);
+
 	var _accept = new FlxActionDigital(Action.ACCEPT);
 	var _back = new FlxActionDigital(Action.BACK);
 	var _pause = new FlxActionDigital(Action.PAUSE);
@@ -126,6 +172,71 @@ class Controls extends FlxActionSet
 
 	public var gamepadsAdded:Array<Int> = [];
 	public var keyboardScheme = KeyboardScheme.None;
+
+
+
+	public var UPUI(get, never):Bool;
+
+	inline function get_UPUI()
+		return _upUI.check();
+
+	public var LEFTUI(get, never):Bool;
+
+	inline function get_LEFTUI()
+		return _leftUI.check();
+
+	public var RIGHTUI(get, never):Bool;
+
+	inline function get_RIGHTUI()
+		return _rightUI.check();
+
+	public var DOWNUI(get, never):Bool;
+
+	inline function get_DOWNUI()
+		return _downUI.check();
+
+	public var UP_PUI(get, never):Bool;
+
+	inline function get_UP_PUI()
+		return _upPUI.check();
+
+	public var LEFT_PUI(get, never):Bool;
+
+	inline function get_LEFT_PUI()
+		return _leftPUI.check();
+
+	public var RIGHT_PUI(get, never):Bool;
+
+	inline function get_RIGHT_PUI()
+		return _rightPUI.check();
+
+	public var DOWN_PUI(get, never):Bool;
+
+	inline function get_DOWN_PUI()
+		return _downPUI.check();
+
+	public var UP_RUI(get, never):Bool;
+
+	inline function get_UP_RUI()
+		return _upRUI.check();
+
+	public var LEFT_RUI(get, never):Bool;
+
+	inline function get_LEFT_RUI()
+		return _leftRUI.check();
+
+	public var RIGHT_RUI(get, never):Bool;
+
+	inline function get_RIGHT_RUI()
+		return _rightRUI.check();
+
+	public var DOWN_RUI(get, never):Bool;
+
+	inline function get_DOWN_RUI()
+		return _downRUI.check();
+
+
+
 
 	public var UP(get, never):Bool;
 
@@ -229,6 +340,20 @@ class Controls extends FlxActionSet
 		add(_leftR);
 		add(_rightR);
 		add(_downR);
+
+		add(_upUI);
+		add(_leftUI);
+		add(_rightUI);
+		add(_downUI);
+		add(_upPUI);
+		add(_leftPUI);
+		add(_rightPUI);
+		add(_downPUI);
+		add(_upRUI);
+		add(_leftRUI);
+		add(_rightRUI);
+		add(_downRUI);
+
 		add(_accept);
 		add(_back);
 		add(_pause);
@@ -258,6 +383,20 @@ class Controls extends FlxActionSet
 		add(_leftR);
 		add(_rightR);
 		add(_downR);
+
+		add(_upUI);
+		add(_leftUI);
+		add(_rightUI);
+		add(_downUI);
+		add(_upPUI);
+		add(_leftPUI);
+		add(_rightPUI);
+		add(_downPUI);
+		add(_upRUI);
+		add(_leftRUI);
+		add(_rightRUI);
+		add(_downRUI);
+
 		add(_accept);
 		add(_back);
 		add(_pause);
@@ -411,6 +550,10 @@ class Controls extends FlxActionSet
 			case DOWN: _down;
 			case LEFT: _left;
 			case RIGHT: _right;
+			case UPUI: _upUI;
+			case DOWNUI: _downUI;
+			case LEFTUI: _leftUI;
+			case RIGHTUI: _rightUI;
 			case ACCEPT: _accept;
 			case BACK: _back;
 			case PAUSE: _pause;
@@ -451,6 +594,22 @@ class Controls extends FlxActionSet
 				func(_down, PRESSED);
 				func(_downP, JUST_PRESSED);
 				func(_downR, JUST_RELEASED);
+			case UPUI:
+				func(_upUI, PRESSED);
+				func(_upPUI, JUST_PRESSED);
+				func(_upRUI, JUST_RELEASED);
+			case LEFTUI:
+				func(_leftUI, PRESSED);
+				func(_leftPUI, JUST_PRESSED);
+				func(_leftRUI, JUST_RELEASED);
+			case RIGHTUI:
+				func(_rightUI, PRESSED);
+				func(_rightPUI, JUST_PRESSED);
+				func(_rightRUI, JUST_RELEASED);
+			case DOWNUI:
+				func(_downUI, PRESSED);
+				func(_downPUI, JUST_PRESSED);
+				func(_downRUI, JUST_RELEASED);
 			case ACCEPT:
 				func(_accept, JUST_PRESSED);
 			case BACK:
@@ -674,17 +833,44 @@ class Controls extends FlxActionSet
 	{
 
 		//trace(FlxKey.fromString(FlxG.save.data.upBind));
-
+		if(FlxG.save.data.upBind == null)
+			FlxG.save.data.upBind = "W";
+		if(FlxG.save.data.downBind == null)
+			FlxG.save.data.downBind = "S";
+		if(FlxG.save.data.leftBind == null)
+			FlxG.save.data.leftBind = "A";
+		if(FlxG.save.data.rightBind == null)
+			FlxG.save.data.rightBind = "D";
+		if(FlxG.save.data.killBind == null)
+			FlxG.save.data.killBind = "R";
+		if(FlxG.save.data.pauseBindUI == null)
+			FlxG.save.data.pauseBindUI = "P";
+		if(FlxG.save.data.upBindUI == null)
+			FlxG.save.data.upBindUI = "W";
+		if(FlxG.save.data.downBindUI == null)
+			FlxG.save.data.downBindUI = "S";
+		if(FlxG.save.data.leftBindUI == null)
+			FlxG.save.data.leftBindUI = "A";
+		if(FlxG.save.data.rightBindUI == null)
+			FlxG.save.data.rightBindUI = "D";
+		if(FlxG.save.data.acceptBindUI == null)
+			FlxG.save.data.acceptBindUI = "Z";
+		if(FlxG.save.data.backBindUI == null)
+			FlxG.save.data.backBindUI = "X";
 		removeKeyboard();
-	
+		
 		inline bindKeys(Control.UP, [FlxKey.fromString(FlxG.save.data.upBind), FlxKey.UP]);
 		inline bindKeys(Control.DOWN, [FlxKey.fromString(FlxG.save.data.downBind), FlxKey.DOWN]);
 		inline bindKeys(Control.LEFT, [FlxKey.fromString(FlxG.save.data.leftBind), FlxKey.LEFT]);
 		inline bindKeys(Control.RIGHT, [FlxKey.fromString(FlxG.save.data.rightBind), FlxKey.RIGHT]);
-		inline bindKeys(Control.ACCEPT, [Z, SPACE, ENTER]);
-		inline bindKeys(Control.BACK, [BACKSPACE, ESCAPE]);
-		inline bindKeys(Control.PAUSE, [P, ENTER, ESCAPE]);
-		inline bindKeys(Control.RESET, [R]);
+		inline bindKeys(Control.ACCEPT, [FlxKey.fromString(FlxG.save.data.acceptBindUI), SPACE, ENTER]);
+		inline bindKeys(Control.BACK, [FlxKey.fromString(FlxG.save.data.backBindUI), BACKSPACE, ESCAPE]);
+		inline bindKeys(Control.PAUSE, [FlxKey.fromString(FlxG.save.data.pauseBindUI), ENTER, ESCAPE]);
+		inline bindKeys(Control.RESET, [FlxKey.fromString(FlxG.save.data.killBind)]);
+		inline bindKeys(Control.UPUI, [FlxKey.fromString(FlxG.save.data.upBindUI), FlxKey.UP]);
+		inline bindKeys(Control.LEFTUI, [FlxKey.fromString(FlxG.save.data.leftBindUI), FlxKey.LEFT]);
+		inline bindKeys(Control.RIGHTUI, [FlxKey.fromString(FlxG.save.data.rightBindUI), FlxKey.RIGHT]);
+		inline bindKeys(Control.DOWNUI, [FlxKey.fromString(FlxG.save.data.downBindUI), FlxKey.DOWN]);
 	}
 
 	function removeKeyboard()

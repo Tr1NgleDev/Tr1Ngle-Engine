@@ -3,7 +3,7 @@ package;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 
-class BackgroundGirls extends FlxSprite
+class BackgroundGirls extends Sprite
 {
 	public function new(x:Float, y:Float)
 	{

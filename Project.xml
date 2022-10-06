@@ -109,7 +109,7 @@
 	<haxelib name="flixel-addons" />
 	<haxelib name="hscript" />
 
-
+	<haxedef name="no-deprecation-warnings" />
 
 	<!--In case you want to use the ui package-->
 	<haxelib name="flixel-ui" />
